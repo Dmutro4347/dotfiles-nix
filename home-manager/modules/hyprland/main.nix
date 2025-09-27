@@ -1,6 +1,17 @@
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    plugins = [
+      pkgs.hyprlandPlugins.hyprsplit
+    ];
+    extraConfig = ''
+      plugin {
+        hyprsplit {
+          num_workspaces = 10
+        }
+      }
+    '';
     settings = {
       env = [
         # Hint Electron apps to use Wayland

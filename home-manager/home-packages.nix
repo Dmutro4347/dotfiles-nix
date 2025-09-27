@@ -4,7 +4,8 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    # Code / Dev gcc
+    # Code / Dev
+    gcc
     git
     grc
     inputs.nixvim-config.packages.${pkgs.system}.default
@@ -14,6 +15,7 @@
     tmuxinator
     tree
     docker
+    nodejs
 
     # Hyprland / WM
     brightnessctl
@@ -47,6 +49,7 @@
     python312Packages.virtualenv
 
     # GUI apps
+    qbittorrent
     kitty
     obsidian
     pavucontrol

@@ -1,6 +1,7 @@
-{unstable, ...}: {
+{ unstable, ... }:
+{
   programs.waybar = {
-    enable=true;
+    enable = true;
     package = unstable.waybar;
     style = ./style.css;
     settings = {
@@ -32,7 +33,10 @@
         "sway/scratchpad" = {
           format = "{icon} {count}";
           "show-empty" = false;
-          "format-icons" = [ "" "" ];
+          "format-icons" = [
+            ""
+            ""
+          ];
           tooltip = true;
           "tooltip-format" = "{app}: {title}";
         };
@@ -63,7 +67,11 @@
           "format-icons" = {
             headphones = "󰋋";
             headset = "󰋎";
-            default = [ "󰕿" "󰖀" "󰕾" ];
+            default = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
           };
           "on-click" = "pavucontrol";
         };
@@ -71,7 +79,11 @@
         backlight = {
           device = "intel_backlight";
           format = "{percent}% {icon}";
-          "format-icons" = [ "󰃞" "󰃟" "󰃠" ];
+          "format-icons" = [
+            "󰃞"
+            "󰃟"
+            "󰃠"
+          ];
         };
 
         network = {
@@ -103,34 +115,34 @@
           format-en = "EN";
           format-uk = "UA";
           tooltip = false;
-          keyboard-name = "at-translated-set-2-keyboard";
-            };
+          # keyboard-name = "at-translated-set-2-keyboard";
+        };
 
-          clock = {
-            format = "{:%R}";
-            rotate = 0;
-            "format-alt" = "{:%R 󰃭 %d·%m·%y}";
-            "tooltip-format" = "<tt>{calendar}</tt>";
-            calendar = {
-              mode = "month";
-              "mode-mon-col" = 3;
-              "on-scroll" = 1;
-              "on-click-right" = "mode";
-              format = {
-                months = "<span color='#ffead3'><b>{}</b></span>";
-                weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-                today = "<span color='#ff6699'><b>{}</b></span>";
-              };
+        clock = {
+          format = "{:%R}";
+          rotate = 0;
+          "format-alt" = "{:%R 󰃭 %d·%m·%y}";
+          "tooltip-format" = "<tt>{calendar}</tt>";
+          calendar = {
+            mode = "month";
+            "mode-mon-col" = 3;
+            "on-scroll" = 1;
+            "on-click-right" = "mode";
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b>{}</b></span>";
             };
-            actions = {
-              "on-click-right" = "mode";
-              "on-click-forward" = "tz_up";
-              "on-click-backward" = "tz_down";
-              "on-scroll-up" = "shift_up";
-              "on-scroll-down" = "shift_down";
-            };
+          };
+          actions = {
+            "on-click-right" = "mode";
+            "on-click-forward" = "tz_up";
+            "on-click-backward" = "tz_down";
+            "on-scroll-up" = "shift_up";
+            "on-scroll-down" = "shift_down";
           };
         };
       };
     };
-  }
+  };
+}

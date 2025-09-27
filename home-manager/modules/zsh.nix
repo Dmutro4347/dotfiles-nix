@@ -4,9 +4,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "robbyrussell";
+    oh-my-zsh = { enable = true; theme = "robbyrussell";
       plugins = [ "git" "z" "sudo" "history" "autojump" "docker" ];
     };
 
@@ -19,7 +17,9 @@
       [ -f ${pkgs.fzf}/share/fzf/completion.zsh ] && source ${pkgs.fzf}/share/fzf/completion.zsh
 
       setopt INC_APPEND_HISTORY
-      setopt SHARE_HISTORY '';
+      setopt SHARE_HISTORY 
+      export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker"; in NIX_LD')
+    '';
 
     shellAliases =
       let

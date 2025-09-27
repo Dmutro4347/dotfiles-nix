@@ -10,7 +10,7 @@
     ./tmux.nix
     ./stylix.nix
     ./wlogout
-    ./lazygit.nix
+    ./lazygit.nix 
     ./tmuxinator.nix
     # ./starship.nix
   ];
