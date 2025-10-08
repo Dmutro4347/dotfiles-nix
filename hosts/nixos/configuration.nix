@@ -1,11 +1,8 @@
 { pkgs, stateVersion, hostname, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    ./local-packages.nix
-    ../../nixos/modules
-  ];
+  imports =
+    [ ./hardware-configuration.nix ./local-packages.nix ../../modules/nixos ];
 
   environment.systemPackages = [ pkgs.home-manager ];
 
@@ -13,5 +10,4 @@
 
   system.stateVersion = stateVersion;
 }
-
 

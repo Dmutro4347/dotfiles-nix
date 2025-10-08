@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mainMod SHIFT, Return, exec, $terminal"
@@ -78,10 +77,8 @@
     ];
 
     # Move/resize windows with mainMod + LMB/RMB and dragging
-    bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
-    ];
+    bindm =
+      [ "$mainMod, mouse:272, movewindow" "$mainMod, mouse:273, resizewindow" ];
 
     # Laptop multimedia keys for volume and LCD brightness
     bindel = [
@@ -91,6 +88,9 @@
       ",XF86AudioMicMute,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
       ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+      ",XF86AudioPlay, exec, playerctl play-pause"
+      ",XF86AudioNext, exec, playerctl next"
+      ",XF86AudioPrev, exec, playerctl previous"
     ];
 
     # Audio playback

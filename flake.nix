@@ -10,11 +10,6 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim-config = {
-      url = "github:Dmutro4347/nixvim-config";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     minegrub-theme = {
       url = "github:Lxtharia/minegrub-theme";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,73 +21,40 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      minegrub-theme,
-      nixvim-config,
-      ...
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, minegrub-theme, ...
     }@inputs:
     let
       system = "x86_64-linux";
       homeStateVersion = "25.05";
       unstable = import nixpkgs-unstable { inherit system; };
       user = "arfors";
-      hosts = [
-        {
-          hostname = "nixos";
-          stateVersion = "25.05";
-        }
-      ];
+      hosts = [{
+        hostname = "nixos";
+        stateVersion = "25.05";
+      }];
 
-      makeSystem =
-        { hostname, stateVersion }:
+      makeSystem = { hostname, stateVersion }:
         nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = {
-            inherit
-              inputs
-              stateVersion
-              hostname
-              user
-              ;
-          };
+          specialArgs = { inherit inputs stateVersion hostname user; };
 
           modules = [
             minegrub-theme.nixosModules.default
-            # nix-ld.nixosModules.nix-ld
             ./hosts/${hostname}/configuration.nix
           ];
         };
-    in
-    {
-      nixosConfigurations = nixpkgs.lib.foldl' (
-        configs: host:
-        configs
-        // {
-          "${host.hostname}" = makeSystem {
-            inherit (host) hostname stateVersion;
-          };
-        }
-      ) { } hosts;
+    in {
+      nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
+        configs // {
+          "${host.hostname}" =
+            makeSystem { inherit (host) hostname stateVersion; };
+        }) { } hosts;
 
       homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [
-          ./home-manager/home.nix
-        ];
+        modules = [ ./home-manager/home.nix ];
 
-        extraSpecialArgs = {
-          inherit
-            unstable
-            inputs
-            homeStateVersion
-            user
-            ;
-        };
+        extraSpecialArgs = { inherit unstable inputs homeStateVersion user; };
       };
     };
 }

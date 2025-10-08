@@ -1,10 +1,7 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [
-      pkgs.hyprlandPlugins.hyprsplit
-    ];
+    plugins = [ pkgs.hyprlandPlugins.hyprsplit ];
     extraConfig = ''
       plugin {
         hyprsplit {
@@ -36,9 +33,7 @@
         "wl-paste --type image --watch cliphist store"
       ];
 
-      cursor = {
-        no_hardware_cursors = true;
-      };
+      cursor = { no_hardware_cursors = true; };
 
       general = {
         gaps_in = 5;
@@ -62,14 +57,12 @@
         active_opacity = 1.0;
         inactive_opacity = 1.0;
 
-        shadow = {
-          enabled = false;
-        };
+        shadow = { enabled = false; };
 
         blur = {
           enabled = true;
 
-          size = 10;
+          size = 11;
           passes = 1;
 
           vibrancy = 0.1696;
@@ -79,9 +72,7 @@
       animations = {
         enabled = true;
 
-        bezier = [
-          "myBezier, 0.05, 0.9, 0.1, 1.05"
-        ];
+        bezier = [ "myBezier, 0.05, 0.9, 0.1, 1.05" ];
 
         animation = [
           "windows, 1, 7, myBezier"

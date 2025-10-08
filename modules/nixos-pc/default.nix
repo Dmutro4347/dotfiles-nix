@@ -1,7 +1,6 @@
 {
   imports = [
     ./audio.nix
-    ./bluetooth.nix
     ./boot.nix
     ./env.nix
     ./kernel.nix
@@ -19,6 +18,5 @@
     ./docker.nix
     ./libvirt.nix
     ./postgres.nix
-    ./asusctl.nix
   ];
 }

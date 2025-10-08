@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -77,8 +76,8 @@
       bind b list-buffers
       bind p paste-buffer -p
       bind P choose-buffer
-      
-      
+
+
       # --- Mouse ---
       bind m set -g mouse \; \
       display-message "Mouse mode: #{?mouse,on,off}"

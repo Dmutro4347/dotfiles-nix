@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-{
+{ pkgs, inputs, ... }: {
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
@@ -8,7 +7,8 @@
     gcc
     git
     grc
-    inputs.nixvim-config.packages.${pkgs.system}.default
+    # inputs.nixvim-config.packages.${pkgs.system}.default
+    neovim
     jetbrains.pycharm-professional
     ranger
     tmux
@@ -16,6 +16,8 @@
     tree
     docker
     nodejs
+    lua
+    luajitPackages.luarocks-nix
 
     # Hyprland / WM
     brightnessctl
@@ -57,5 +59,6 @@
     telegram-desktop
     virt-manager
     firefox
+    anki
   ];
 }

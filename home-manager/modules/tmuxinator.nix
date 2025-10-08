@@ -6,13 +6,13 @@
     windows:
       - editor:
           panes:
-            - source venv/bin/activate && nvim .
+            - source .venv/bin/activate && nvim .
       - server:
           panes:
-            - source venv/bin/activate && python manage.py runserver 0.0.0.0:8000
+            - source .venv/bin/activate && python manage.py runserver 0.0.0.0:8000
       - shell:
           panes:
-            - source venv/bin/activate && python manage.py shell
+            - source .venv/bin/activate && python manage.py shell
       - git:
           panes:
             - lazygit
@@ -25,13 +25,13 @@
     windows:
       - editor:
           panes:
-            - source venv/bin/activate && nvim .
+            - source .venv/bin/activate && nvim .
       - server:
           panes:
-            - source venv/bin/activate && python manage.py runserver 0.0.0.0:8000
+            - source .venv/bin/activate && python manage.py runserver 0.0.0.0:8000
       - shell:
           panes:
-            - source venv/bin/activate && python manage.py shell
+            - source .venv/bin/activate && python manage.py shell
       - git:
           panes:
             - lazygit
