@@ -114,6 +114,7 @@
         "workspace 9,class:(firefox)"
         "workspace 4,class:(Spotify)"
         "workspace 3, class:(jetbrains-pycharm)"
+        "workspace 7, class:(info.febvre.Komikku)"
         "float,class:(org.pulseaudio.pavucontrol)|(.blueman-manager-wrapped)|(waypaper)"
         "size 1000 1000,class:(org.pulseaudio.pavucontrol)"
       ];

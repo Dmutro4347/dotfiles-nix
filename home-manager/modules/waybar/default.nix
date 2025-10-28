@@ -1,5 +1,4 @@
-{ unstable, ... }:
-{
+{ unstable, ... }: {
   programs.waybar = {
     enable = true;
     package = unstable.waybar;
@@ -11,39 +10,22 @@
         position = "top";
         appearance = "dark";
 
-        "modules-left" = [
-          "hyprland/workspaces"
-          "hyprland/window"
-        ];
-        "modules-center" = [
-          "clock"
-        ];
-        "modules-right" = [
-          "tray"
-          "battery"
-          "pulseaudio"
-          "network"
-          "hyprland/language"
-        ];
+        "modules-left" = [ "hyprland/workspaces" "hyprland/window" ];
+        "modules-center" = [ "clock" ];
+        "modules-right" =
+          [ "tray" "battery" "pulseaudio" "network" "hyprland/language" ];
 
-        "sway/mode" = {
-          format = "<span style=\"italic\">{}</span>";
-        };
+        "sway/mode" = { format = ''<span style="italic">{}</span>''; };
 
         "sway/scratchpad" = {
           format = "{icon} {count}";
           "show-empty" = false;
-          "format-icons" = [
-            ""
-            ""
-          ];
+          "format-icons" = [ "" "" ];
           tooltip = true;
           "tooltip-format" = "{app}: {title}";
         };
 
-        tray = {
-          spacing = 10;
-        };
+        tray = { spacing = 10; };
 
         battery = {
           states = {
@@ -67,11 +49,7 @@
           "format-icons" = {
             headphones = "󰋋";
             headset = "󰋎";
-            default = [
-              "󰕿"
-              "󰖀"
-              "󰕾"
-            ];
+            default = [ "󰕿" "󰖀" "󰕾" ];
           };
           "on-click" = "pavucontrol";
         };
@@ -79,11 +57,7 @@
         backlight = {
           device = "intel_backlight";
           format = "{percent}% {icon}";
-          "format-icons" = [
-            "󰃞"
-            "󰃟"
-            "󰃠"
-          ];
+          "format-icons" = [ "󰃞" "󰃟" "󰃠" ];
         };
 
         network = {

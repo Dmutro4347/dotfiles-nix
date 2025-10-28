@@ -1,45 +1,112 @@
+/* window { */
+/*   margin: 0px; */
+/*   /* border: 5px solid; */
+*/
+/*   /* border-image: linear-gradient(135deg, #d65d0e 0%, #98971a 100%) 1; */ */
+/*   background-color: #0e1419; /* фон з твоєї палітри */ */
+/*   font-family: "JetBrains Mono"; */
+/*   font-weight: bold; */
+/*   font-size: 16px; */
+/* } */
+/**/
+/* #input { */
+/*   margin: 5px; */
+/*   border: none; */
+/*   color: #e5e1cf; /* foreground */ */
+/*   background-color: #; /* selection_background */ */
+/* } */
+/**/
+/* #inner-box { */
+/*   margin: 5px; */
+/*   border: none; */
+/*   background-color: #0e1419; /* background */ */
+/* } */
+/**/
+/* #outer-box { */
+/*   margin: 5px; */
+/*   border: none; */
+/*   background-color: #0e1419; /* background */ */
+/* } */
+/**/
+/* #scroll { */
+/*   margin: 0px; */
+/*   border: none; */
+/* } */
+/**/
+/* #text { */
+/*   margin: 5px; */
+/*   border: none; */
+/*   color: #e5e1cf; /* foreground */ */
+/* } */
+/**/
+/* #entry:selected { */
+/*   background-color: #d65d0e; /* color12 - синій акцент */ */
+/*   color: #0e1419; /* background для контрасту */ */
+/* } */
+
 window {
   margin: 0px;
-  /* border: 5px solid; */
-  /* border-image: linear-gradient(135deg, #d65d0e 0%, #98971a 100%) 1; */
-  /* background-color: #0e1419;  /* фон з твоєї палітри */ */
+  background-color: #282828; /* bg */
   font-family: "JetBrains Mono";
   font-weight: bold;
   font-size: 16px;
+  color: #ebdbb2; /* fg */
 }
 
 #input {
-  margin: 5px;
+  margin: 6px;
   border: none;
-  color: #e5e1cf;              /* foreground */
-  background-color: #243340;   /* selection_background */
+  color: #ebdbb2; /* fg */
+  background-color: #3c3836; /* bg1 */
 }
 
 #inner-box {
-  margin: 5px;
+  margin: 4px;
   border: none;
-  background-color: #0e1419;   /* background */
+  background-color: #282828; /* bg */
 }
 
 #outer-box {
-  margin: 5px;
+  margin: 4px;
   border: none;
-  background-color: #0e1419;   /* background */
+  background-color: #282828; /* bg */
 }
 
 #scroll {
   margin: 0px;
   border: none;
+  background-color: #282828; /* bg */
 }
 
 #text {
-  margin: 5px;
+  margin: 4px;
   border: none;
-  color: #e5e1cf;               /* foreground */
+  color: #ebdbb2; /* fg */
 }
 
 #entry:selected {
-  background-color: #68d4ff;    /* color12 - синій акцент */
-  color: #0e1419;               /* background для контрасту */
+  background-color: #504945; /* bg2 — subtle selection */
+  color: #fabd2f; /* yellow accent */
 }
 
+#entry:hover {
+  background-color: #665c54; /* bg3 — hover highlight */
+  color: #fbf1c7; /* fg_light */
+}
+
+#entry:active {
+  background-color: #d65d0e; /* orange accent — click effect */
+  color: #282828;
+}
+
+#entry {
+  padding: 4px;
+  border: none;
+  color: #ebdbb2; /* fg */
+  background-color: transparent;
+}
+
+#input:focus {
+  outline: none;
+  background-color: #504945; /* subtle active input */
+}

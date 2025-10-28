@@ -12,6 +12,7 @@
     ./wlogout
     ./lazygit.nix 
     ./tmuxinator.nix
+    ./nvchad.nix
     # ./starship.nix
   ];
 }

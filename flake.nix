@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nix-ld.url = "github:Mic92/nix-ld";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -18,6 +17,16 @@
     stylix = {
       url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nvchad-starter = {
+      url = "github:Dmutro4347/nvchad-config";
+      flake = false;
+    };
+
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nvchad-starter.follows = "nvchad-starter";
     };
   };
 
@@ -36,7 +45,7 @@
       makeSystem = { hostname, stateVersion }:
         nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = { inherit inputs stateVersion hostname user; };
+          specialArgs = { inherit inputs system stateVersion hostname user; };
 
           modules = [
             minegrub-theme.nixosModules.default
@@ -54,7 +63,9 @@
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [ ./home-manager/home.nix ];
 
-        extraSpecialArgs = { inherit unstable inputs homeStateVersion user; };
+        extraSpecialArgs = {
+          inherit system unstable inputs homeStateVersion user;
+        };
       };
     };
 }

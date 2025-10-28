@@ -12,7 +12,6 @@
     powerline-fonts
     powerline-symbols
     nerd-fonts.jetbrains-mono
-    monocraft
   ];
 
   stylix = {
@@ -21,7 +20,6 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 
     targets = {
-      # nixvim.enable = false;
       neovim.enable = false;
       waybar.enable = false;
       wofi.enable = false;
@@ -42,9 +40,7 @@
       };
       monospace = {
         name = "JetBrains Mono";
-        # name = "Monocraft Nerd Font";
         package = pkgs.jetbrains-mono;
-        # package = pkgs.monocraft;
       };
       sansSerif = {
         name = "Noto Sans";

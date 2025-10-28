@@ -18,5 +18,6 @@
     ./docker.nix
     ./libvirt.nix
     ./postgres.nix
+    ./nix-ld.nix
   ];
 }

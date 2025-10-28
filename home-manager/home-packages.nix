@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, unstable, ... }: {
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
@@ -7,8 +7,7 @@
     gcc
     git
     grc
-    # inputs.nixvim-config.packages.${pkgs.system}.default
-    neovim
+    nano
     jetbrains.pycharm-professional
     ranger
     tmux
@@ -60,5 +59,6 @@
     virt-manager
     firefox
     anki
+    unstable.komikku
   ];
 }

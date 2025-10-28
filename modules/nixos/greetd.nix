@@ -2,11 +2,18 @@
   services.greetd = {
     enable = true;
     settings = {
-      terminal.vt = 2;
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        user = "greeter";
+        user = "arfors";
       };
+      terminal = { vt = 7; };
+    };
+  };
+  systemd.services.greetd = {
+    serviceConfig = {
+      Type = "idle";
+      ExecStartPre = [ "${pkgs.procps}/bin/kill -s RTMIN+21 1" ];
+      ExecStopPost = [ "${pkgs.procps}/bin/kill -s RTMIN+20 1" ];
     };
   };
 }
