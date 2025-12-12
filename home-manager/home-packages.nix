@@ -36,17 +36,19 @@
     jq
     killall
     microfetch
+    onefetch
     ntfs3g
     pass
     pinentry-curses
     unzip
     wget
     qemu
+    OVMF
     ripgrep
 
     # Python
     python312
-    python312Packages.pip
+    uv
     python312Packages.virtualenv
 
     # GUI apps

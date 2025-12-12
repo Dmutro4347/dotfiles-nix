@@ -21,5 +21,6 @@
     ./postgres.nix
     ./asusctl.nix
     ./nix-ld.nix
+    ./incus.nix
   ];
 }
