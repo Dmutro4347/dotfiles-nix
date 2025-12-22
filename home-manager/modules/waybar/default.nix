@@ -1,4 +1,4 @@
-{ unstable, ... }: {
+{ unstable, config, ... }: {
   programs.waybar = {
     enable = true;
     package = unstable.waybar;
@@ -10,10 +10,20 @@
         position = "top";
         appearance = "dark";
 
-        "modules-left" = [ "hyprland/workspaces" "hyprland/window" ];
+        "modules-left" =
+          [ "hyprland/workspaces" "custom/separator" "hyprland/window" ];
         "modules-center" = [ "clock" ];
-        "modules-right" =
-          [ "tray" "battery" "pulseaudio" "network" "hyprland/language" ];
+        "modules-right" = [
+          "tray"
+          "custom/separator"
+          "hyprland/language"
+          "custom/separator"
+          "pulseaudio"
+          "custom/separator"
+          "network"
+          "custom/separator"
+          "battery"
+        ];
 
         "sway/mode" = { format = ''<span style="italic">{}</span>''; };
 
@@ -26,6 +36,11 @@
         };
 
         tray = { spacing = 10; };
+        "custom/separator" = {
+          format = "┇";
+          interval = "once";
+          tooltip = false;
+        };
 
         battery = {
           states = {
@@ -33,11 +48,7 @@
             warning = 30;
             critical = 15;
           };
-          format = "󰁿";
-          "format-full" = "󱟢";
-          "format-charging" = "󱟦";
-          "format-plugged" = "{󰂄";
-          "format-critical" = "󰂃";
+          format = " [{capacity}%]";
         };
 
         pulseaudio = {
@@ -86,8 +97,8 @@
 
         "hyprland/language" = {
           format = "{}";
-          format-en = "EN";
-          format-uk = "UA";
+          format-en = "[EN]";
+          format-uk = "[UA]";
           tooltip = false;
           # keyboard-name = "at-translated-set-2-keyboard";
         };
@@ -96,6 +107,7 @@
           format = "{:%R}";
           rotate = 0;
           "format-alt" = "{:%R 󰃭 %d·%m·%y}";
+          interval = "once";
           "tooltip-format" = "<tt>{calendar}</tt>";
           calendar = {
             mode = "month";

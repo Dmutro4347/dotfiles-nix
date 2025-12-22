@@ -60,7 +60,7 @@
         shadow = { enabled = false; };
 
         blur = {
-          enabled = true;
+          enabled = false;
 
           size = 11;
           passes = 1;

@@ -3,7 +3,7 @@
     enable = true;
 
     settings = {
-      background_opacity = lib.mkForce 0.8;
+      background_opacity = lib.mkForce 1.0;
       window_margin_width = lib.mkForce 15;
 
       #   foreground = "#e5e1cf";

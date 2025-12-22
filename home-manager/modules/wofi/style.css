@@ -46,67 +46,67 @@
 
 window {
   margin: 0px;
-  background-color: #282828; /* bg */
+  background-color: #2e3440; /* base00 – darkest bg */
   font-family: "JetBrains Mono";
   font-weight: bold;
   font-size: 16px;
-  color: #ebdbb2; /* fg */
+  color: #e5e9f0; /* base05 – default fg */
 }
 
 #input {
   margin: 6px;
   border: none;
-  color: #ebdbb2; /* fg */
-  background-color: #3c3836; /* bg1 */
+  color: #e5e9f0; /* base05 */
+  background-color: #3b4252; /* base01 */
 }
 
 #inner-box {
   margin: 4px;
   border: none;
-  background-color: #282828; /* bg */
+  background-color: #2e3440; /* base00 */
 }
 
 #outer-box {
   margin: 4px;
   border: none;
-  background-color: #282828; /* bg */
+  background-color: #2e3440; /* base00 */
 }
 
 #scroll {
   margin: 0px;
   border: none;
-  background-color: #282828; /* bg */
+  background-color: #2e3440; /* base00 */
 }
 
 #text {
   margin: 4px;
   border: none;
-  color: #ebdbb2; /* fg */
-}
-
-#entry:selected {
-  background-color: #504945; /* bg2 — subtle selection */
-  color: #fabd2f; /* yellow accent */
-}
-
-#entry:hover {
-  background-color: #665c54; /* bg3 — hover highlight */
-  color: #fbf1c7; /* fg_light */
-}
-
-#entry:active {
-  background-color: #d65d0e; /* orange accent — click effect */
-  color: #282828;
+  color: #e5e9f0; /* base05 */
 }
 
 #entry {
   padding: 4px;
   border: none;
-  color: #ebdbb2; /* fg */
+  color: #e5e9f0; /* base05 */
   background-color: transparent;
+}
+
+#entry:selected {
+  background-color: #434c5e; /* base02 */
+  color: #ebcb8b; /* base0D — yellow accent */
+}
+
+#entry:hover {
+  background-color: #4c566a; /* base03 — hover lift */
+  color: #eceff4; /* base06 – lighter fg */
+}
+
+#entry:active {
+  background-color: #d08770; /* base0C – orange accent */
+  color: #2e3440;
 }
 
 #input:focus {
   outline: none;
-  background-color: #504945; /* subtle active input */
+  background-color: #434c5e; /* base02 */
 }

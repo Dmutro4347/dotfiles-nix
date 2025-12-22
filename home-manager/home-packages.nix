@@ -45,6 +45,7 @@
     qemu
     OVMF
     ripgrep
+    flatpak-builder
 
     # Python
     python312
@@ -62,5 +63,6 @@
     firefox
     anki
     unstable.komikku
+    anydesk
   ];
 }

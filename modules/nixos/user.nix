@@ -13,7 +13,8 @@
         "dockerd"
         "kvm"
         "libvirtd"
-        "lxd"
+        "incus"
+        "incus-admin"
       ];
     };
   };
