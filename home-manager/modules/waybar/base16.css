@@ -1,0 +1,86 @@
+@import "/home/arfors/flake/home-manager/modules/waybar/base16-waybar/colors/base16-nord.css";
+/* === Global === */
+* {
+  font-family:
+    JetBrains Mono Nerd Font,
+    sans-serif;
+  font-size: 15px;
+  color: @base05; /* Default Foreground */
+}
+
+window#waybar {
+  background: @base00;
+  padding: 2px 10px;
+}
+
+/* === Workspaces === */
+#workspaces button {
+  padding: 0 2px;
+  margin-right: 6px;
+  /* background-color: @base01; Lighter background */
+  color: @base05;
+}
+
+#workspaces button:hover {
+  background-color: @base02; /* Selection background */
+}
+
+#workspaces button.focused {
+  background-color: @base02; /* Logical selection color */
+  color: @base0D; /* Functions/Headings accent */
+}
+
+#workspaces button.active {
+  color: @base0E; /* Keyword-style accent */
+}
+
+#workspaces button.urgent {
+  background-color: @base08; /* Deleted/Error/Alert */
+}
+
+/* === Modules === */
+#tray,
+#window,
+#clock,
+#battery,
+#cpu,
+#network,
+#language,
+#pulseaudio {
+  padding: 0 6px;
+  margin: 0 6px;
+  color: @base05; /* Primary text */
+}
+
+#clock {
+  color: @base05; /* Highlight (search/bold) */
+}
+
+#cpu,
+#battery {
+  color: @base0E; /* Functional accent */
+}
+
+#network {
+  color: @base0D; /* Support/quotes/reg-ex accent */
+}
+
+#pulseaudio.muted {
+  color: @base03; /* Comments / muted style */
+}
+
+/* Vertical separator */
+#custom-sep {
+  margin: 2 2px;
+  padding: 4px 4px;
+  font-size: 16px;
+  opacity: 0.6;
+  color: @base03; /* Low-contrast comment tone */
+}
+
+/* Group margins */
+.modules-right,
+.modules-center,
+.modules-left {
+  margin: 0 4px;
+}

@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -30,8 +31,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, minegrub-theme, ...
-    }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, minegrub-theme
+    , spicetify-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       homeStateVersion = "25.05";

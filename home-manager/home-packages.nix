@@ -30,6 +30,7 @@
     wofi
 
     # System / CLI utils
+    cmus
     bc
     gnupg
     htop
@@ -45,24 +46,32 @@
     qemu
     OVMF
     ripgrep
-    flatpak-builder
 
     # Python
     python312
     uv
     python312Packages.virtualenv
 
+    # Cybersecurity
+    # wireshark
+    # burpsuite
+    # nmap
+    # rustscan
+    # metasploit
+    # aircrack-ng
+    # wifite2
+    # wirelesstools
+    # openvpn
+    #
     # GUI apps
     qbittorrent
     kitty
     obsidian
     pavucontrol
-    spotify
     telegram-desktop
     virt-manager
     firefox
     anki
     unstable.komikku
-    anydesk
   ];
 }

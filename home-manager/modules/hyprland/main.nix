@@ -60,9 +60,9 @@
         shadow = { enabled = false; };
 
         blur = {
-          enabled = false;
+          enabled = true;
 
-          size = 11;
+          size = 4;
           passes = 1;
 
           vibrancy = 0.1696;

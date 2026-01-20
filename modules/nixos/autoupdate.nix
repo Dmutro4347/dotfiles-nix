@@ -2,9 +2,9 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
-    flake = "/home/arfors/flake"; # твій флейк
+    flake = "/home/arfors/flake";
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-    dates = "weekly"; # раз на тиждень
+    dates = "weekly";
     randomizedDelaySec = "1h";
   };
 }

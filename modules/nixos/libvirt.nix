@@ -1,5 +1,6 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
+  environment.systemPackages =
+    [ pkgs.spice-gtk pkgs.spice-protocol pkgs.usbredir ];
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -10,4 +11,6 @@
   };
 
   programs.virt-manager.enable = true; # GUI для керування
+  services.spice-vdagentd.enable = true;
+  security.polkit.enable = true;
 }

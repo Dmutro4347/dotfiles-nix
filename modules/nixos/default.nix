@@ -22,6 +22,5 @@
     ./asusctl.nix
     ./nix-ld.nix
     ./flatpak.nix
-    # ./incus.nix
   ];
 }
