@@ -23,12 +23,12 @@
       "$fileManager" = "$terminal -e sh -c 'ranger'";
       "$menu" = "wofi";
       "$browser" = "firefox";
-      "$massanger" = "telegram-desktop";
+      "$massanger" = "Telegram";
 
       exec-once = [
-        "waypaper --restore"
+        # "waypaper --restore"
         "blueman-applet"
-        "waybar"
+        # "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
@@ -93,7 +93,7 @@
       };
 
       gestures = {
-        workspace_swipe = false;
+        # workspace_swipe = false;
         #workspace_swipe_invert = false;
         #workspace_swipe_forever	= true;
       };
@@ -117,6 +117,8 @@
         "workspace 7, class:(info.febvre.Komikku)"
         "float,class:(org.pulseaudio.pavucontrol)|(.blueman-manager-wrapped)|(waypaper)"
         "size 1000 1000,class:(org.pulseaudio.pavucontrol)"
+        "float,class:(org.quickshell)"
+
       ];
 
       #      workspace = [

@@ -22,5 +22,6 @@
     ./asusctl.nix
     ./nix-ld.nix
     ./flatpak.nix
+    ./battery.nix
   ];
 }

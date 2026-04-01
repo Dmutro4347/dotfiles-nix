@@ -6,7 +6,7 @@
     qemu = {
       package = pkgs.qemu_full;
       swtpm.enable = true; # TPM 2.0 (для Win11, наприклад)
-      ovmf.enable = true; # UEFI прошивка
+      # ovmf.enable = true; # UEFI прошивка
     };
   };
 

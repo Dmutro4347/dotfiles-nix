@@ -8,7 +8,7 @@
     git
     grc
     nano
-    jetbrains.pycharm-professional
+    jetbrains.pycharm
     ranger
     tmux
     tmuxinator
@@ -17,6 +17,7 @@
     nodejs
     lua
     luajitPackages.luarocks-nix
+    sqlite
 
     # Hyprland / WM
     brightnessctl
@@ -28,6 +29,8 @@
     waypaper
     wl-clipboard
     wofi
+    pamixer
+    pywal
 
     # System / CLI utils
     cmus
@@ -55,7 +58,7 @@
     # Cybersecurity
     # wireshark
     # burpsuite
-    # nmap
+    nmap
     # rustscan
     # metasploit
     # aircrack-ng
@@ -73,5 +76,6 @@
     firefox
     anki
     unstable.komikku
+    gimp
   ];
 }

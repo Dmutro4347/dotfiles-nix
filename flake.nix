@@ -2,12 +2,12 @@
   description = "My system configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     minegrub-theme = {
@@ -16,7 +16,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvchad-starter = {
@@ -29,19 +29,40 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nvchad-starter.follows = "nvchad-starter";
     };
+
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dms-plugin-registry = {
+      url = "github:AvengeMedia/dms-plugin-registry";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, minegrub-theme
     , spicetify-nix, ... }@inputs:
     let
       system = "x86_64-linux";
-      homeStateVersion = "25.05";
+      homeStateVersion = "25.11";
       unstable = import nixpkgs-unstable { inherit system; };
       user = "arfors";
-      hosts = [{
-        hostname = "nixos";
-        stateVersion = "25.05";
-      }];
+      hosts = [
+        {
+          hostname = "nixos";
+          stateVersion = "25.11";
+        }
+        {
+          hostname = "hp-pc";
+          stateVersion = "25.11";
+        }
+      ];
 
       makeSystem = { hostname, stateVersion }:
         nixpkgs.lib.nixosSystem {

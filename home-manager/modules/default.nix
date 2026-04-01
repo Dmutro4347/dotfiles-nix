@@ -15,6 +15,6 @@
     ./nvchad.nix
     # ./starship.nix
     ./spicetify.nix
-    # ./wireshark.nix
+    ./dunkshell.nix
   ];
 }

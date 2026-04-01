@@ -1,7 +1,11 @@
 {
-	programs.git = {
-		enable = true;
-		userName = "Dmutro4347";
-		userEmail = "dmutrobui@gmail.com";
-	};
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Dmutro4347";
+        email = "dmutrobui@gmail.com";
+      };
+    };
+  };
 }
