@@ -7,7 +7,6 @@
     gcc
     git
     grc
-    nano
     jetbrains.pycharm
     ranger
     tmux
@@ -18,6 +17,8 @@
     lua
     luajitPackages.luarocks-nix
     sqlite
+    claude-code
+    lmstudio
 
     # Hyprland / WM
     brightnessctl
@@ -25,15 +26,10 @@
     grimblast
     playerctl
     slurp
-    swww
-    waypaper
     wl-clipboard
-    wofi
-    pamixer
     pywal
 
     # System / CLI utils
-    cmus
     bc
     gnupg
     htop
@@ -70,12 +66,12 @@
     qbittorrent
     kitty
     obsidian
-    pavucontrol
+   # pavucontrol
     telegram-desktop
     virt-manager
     firefox
-    anki
-    unstable.komikku
-    gimp
+    # anki
+    # unstable.komikku
+    # gimp
   ];
 }

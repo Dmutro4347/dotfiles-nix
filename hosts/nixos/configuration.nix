@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ ./hardware-configuration.nix ./local-packages.nix ../../modules/{hostname} ];
+    [ ./hardware-configuration.nix ./local-packages.nix ../../modules/${hostname} ];
 
   environment.systemPackages = [ pkgs.home-manager ];
 

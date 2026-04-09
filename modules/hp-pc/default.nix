@@ -1,6 +1,7 @@
 {
   imports = [
     ./audio.nix
+    ./bluetooth.nix
     ./boot.nix
     ./env.nix
     ./kernel.nix
@@ -8,16 +9,15 @@
     ./nix.nix
     ./timezone.nix
     ./user.nix
-    ./touchpad.nix
     ./gc.nix
     ./hyprland.nix
     ./locale.nix
-    ./greetd.nix
+    # ./greetd.nix
     ./nh.nix
     ./autoupdate.nix
     ./docker.nix
     ./libvirt.nix
-    ./postgres.nix
     ./nix-ld.nix
+    ./nvidia.nix
   ];
 }

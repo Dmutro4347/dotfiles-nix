@@ -17,7 +17,10 @@
         "XDG_SCREENSHOTS_DIR,$HOME/Pictures/screens"
 
       ];
-      monitor = ",1920x1080@60,auto,1";
+      # monitor = ",1920x1080@60,auto,1";
+      monitor=["DP-2,1920x1080@60,0x0,1"
+      "HDMI-A-1,1920x1080@60,1920x0,1"];
+
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
       "$fileManager" = "$terminal -e sh -c 'ranger'";
@@ -109,13 +112,13 @@
       };
 
       windowrulev2 = [
-        "workspace 5,class:(obsidian)"
-        "workspace 2,class:(org.telegram.desktop)"
-        "workspace 9,class:(firefox)"
-        "workspace 4,class:(Spotify)"
-        "workspace 3, class:(jetbrains-pycharm)"
-        "workspace 7, class:(info.febvre.Komikku)"
-        "float,class:(org.pulseaudio.pavucontrol)|(.blueman-manager-wrapped)|(waypaper)"
+        # "workspace 5,class:(obsidian)"
+        # "workspace 2,class:(org.telegram.desktop)"
+        # "workspace 9,class:(firefox)"
+        # "workspace 4,class:(Spotify)"
+        # "workspace 3, class:(jetbrains-pycharm)"
+        # "workspace 7, class:(info.febvre.Komikku)"
+        "float,class:(org.pulseaudio.pavucontrol)|(.blueman-manager-wrapped)|(LM Studio)"
         "size 1000 1000,class:(org.pulseaudio.pavucontrol)"
         "float,class:(org.quickshell)"
 

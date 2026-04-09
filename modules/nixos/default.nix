@@ -13,7 +13,7 @@
     ./gc.nix
     ./hyprland.nix
     ./locale.nix
-    ./greetd.nix
+    # ./greetd.nix
     ./nh.nix
     ./autoupdate.nix
     ./docker.nix

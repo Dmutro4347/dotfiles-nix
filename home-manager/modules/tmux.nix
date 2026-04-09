@@ -3,7 +3,7 @@
     enable = true;
     baseIndex = 1;
     mouse = true;
-    escapeTime = 10;
+    escapeTime = 0;
     keyMode = "vi";
     terminal = "tmux-256color";
 
@@ -28,14 +28,14 @@
       set-option -g set-clipboard on
 
       # --- Copy mode (vi) ---
-      setw -g mode-keys vi
+      # setw -g mode-keys vi
       # bind -T copy-mode-vi v send-keys -X begin-selection
       # bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
       # bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy"
       # bind -T copy-mode-vi Escape send-keys -X cancel
       # bind -T copy-mode-vi H send-keys -X start-of-line
       # bind -T copy-mode-vi L send-keys -X end-of-line
-
+      #
       # --- Reload config ---
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
 

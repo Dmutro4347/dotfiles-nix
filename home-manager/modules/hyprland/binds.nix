@@ -1,18 +1,19 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mainMod SHIFT, Return, exec, $terminal"
       "$mainMod SHIFT, Q, killactive,"
-      "$mainMod SHIFT, E, exec, wlogout"
+      "$mainMod SHIFT, E, exec, dms ipc call powermenu toggle"
       "$mainMod SHIFT, B, exec, $browser"
       "$mainMod SHIFT, T, exec, $massanger"
       "$mainMod SHIFT, W, exec, waypaper"
       "$mainMod,       F, togglefloating,"
-      "$mainMod SHIFT, R, exec, $menu --show drun"
+      "$mainMod SHIFT, R, exec, dms ipc call spotlight toggle"
       "$mainMod,       P, pseudo,"
       "$mainMod,       T, togglesplit,"
-      "$mainMod,       N, exec, swaync-client -t"
-      "$mainMod,       V, exec, cliphist list | $menu --dmenu | cliphist decode | wl-copy"
+      "$mainMod,       N, exec, dms ipc call notifications open"
+      "$mainMod,       V, exec, dms ipc call clipboard toggle"
       ", Print, exec, grimblast --notify --freeze copysave area"
 
       # Moving focus
@@ -77,17 +78,19 @@
     ];
 
     # Move/resize windows with mainMod + LMB/RMB and dragging
-    bindm =
-      [ "$mainMod, mouse:272, movewindow" "$mainMod, mouse:273, resizewindow" ];
+    bindm = [
+      "$mainMod, mouse:272, movewindow"
+      "$mainMod, mouse:273, resizewindow"
+    ];
 
     # Laptop multimedia keys for volume and LCD brightness
     bindel = [
-      ",XF86AudioRaiseVolume,  exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
-      ",XF86AudioLowerVolume,  exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
-      ",XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ",XF86AudioMicMute,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
-      ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+      ",XF86AudioRaiseVolume,  exec, dms ipc call audio increment 5"
+      ",XF86AudioLowerVolume,  exec, dms ipc call audio decrement 5"
+      ",XF86AudioMute,         exec, dms ipc call audio mute"
+      ",XF86AudioMicMute,      exec, dms ipc call audio micmute"
+      ",XF86MonBrightnessUp, exec, dms ipc call brightness increment 10 ''"
+      ",XF86MonBrightnessDown, exec, dms ipc call brightness decrement 10 ''"
     ];
 
     # Audio playback
