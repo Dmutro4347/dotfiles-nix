@@ -13,15 +13,17 @@
     ./gc.nix
     ./hyprland.nix
     ./locale.nix
-    # ./greetd.nix
+    ./greetd.nix
     ./nh.nix
     ./autoupdate.nix
     ./docker.nix
     ./libvirt.nix
-    ./postgres.nix
+    # ./postgres.nix
     ./asusctl.nix
     ./nix-ld.nix
-    ./flatpak.nix
+    # ./flatpak.nix
     ./battery.nix
+    ./nvidia.nix
+    ./openssh.nix
   ];
 }
