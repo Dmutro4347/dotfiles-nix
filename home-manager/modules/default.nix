@@ -1,10 +1,10 @@
 {
   imports = [
     ./git.nix
-   ./zsh.nix
+    ./zsh.nix
     ./hyprland
     ./kitty.nix
- #   ./waybar
+    #   ./waybar
     ./ranger.nix
     ./wofi
     ./tmux.nix
@@ -16,5 +16,6 @@
     # ./starship.nix
     ./spicetify.nix
     ./dunkshell.nix
+    ./gpg-agent.nix
   ];
 }

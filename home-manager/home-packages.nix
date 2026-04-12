@@ -1,4 +1,10 @@
-{ pkgs, inputs, unstable, ... }: {
+{
+  pkgs,
+  inputs,
+  unstable,
+  ...
+}:
+{
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
@@ -39,12 +45,14 @@
     onefetch
     ntfs3g
     pass
-    pinentry-curses
+    pinentry-tty
     unzip
     wget
     qemu
     OVMF
     ripgrep
+    nvtopPackages.nvidia
+    yt-dlp
 
     # Python
     python312
@@ -66,7 +74,7 @@
     qbittorrent
     kitty
     obsidian
-   # pavucontrol
+    # pavucontrol
     telegram-desktop
     virt-manager
     firefox

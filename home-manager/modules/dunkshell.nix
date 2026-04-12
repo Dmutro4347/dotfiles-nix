@@ -1,17 +1,22 @@
-{ inputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  unstable,
+  ...
+}:
+{
   imports = [
     inputs.dms.homeModules.dank-material-shell
     inputs.dms-plugin-registry.modules.default
   ];
   programs.dank-material-shell = {
     enable = true;
-    quickshell.package = pkgs.quickshell;
+    quickshell.package = unstable.quickshell;
     dgop.package = inputs.dgop.packages.${pkgs.system}.default;
 
     systemd = {
       enable = true; # Systemd service for auto-start
-      restartIfChanged =
-        true; # Auto-restart dms.service when dank-material-shell changes
+      restartIfChanged = true; # Auto-restart dms.service when dank-material-shell changes
     };
 
     # settings = {
@@ -30,7 +35,9 @@
         enable = true;
 
         # You can only define settings here if using the home-manager module
-        settings = { preferredSource = "spotify"; };
+        settings = {
+          preferredSource = "spotify";
+        };
       };
     };
   };
