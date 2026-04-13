@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   services.gpg-agent = {
     enable = true;
 
@@ -9,6 +8,6 @@
     enableSshSupport = true;
 
     # Для Hyprland (Wayland)
-    pinentry.package = pkgs.pinentry-tty;
+    pinentry.package = pkgs.pinentry-curses;
   };
 }

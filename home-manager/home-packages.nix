@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  unstable,
-  ...
-}:
-{
+{ pkgs, inputs, unstable, ... }: {
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
@@ -36,6 +30,7 @@
     pywal
 
     # System / CLI utils
+    pinentry-curses
     bc
     gnupg
     htop
@@ -45,7 +40,6 @@
     onefetch
     ntfs3g
     pass
-    pinentry-tty
     unzip
     wget
     qemu
