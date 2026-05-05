@@ -47,6 +47,8 @@
     ripgrep
     nvtopPackages.nvidia
     yt-dlp
+    android-tools
+    w3m
 
     # Python
     python312
@@ -72,6 +74,7 @@
     telegram-desktop
     virt-manager
     firefox
+    nicotine-plus
     # anki
     # unstable.komikku
     # gimp

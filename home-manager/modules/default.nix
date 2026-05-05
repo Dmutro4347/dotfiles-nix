@@ -17,5 +17,6 @@
     ./spicetify.nix
     ./dunkshell.nix
     ./gpg-agent.nix
+    ./super-productivity.nix
   ];
 }
