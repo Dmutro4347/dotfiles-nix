@@ -1,4 +1,10 @@
-{ pkgs, inputs, unstable, ... }: {
+{
+  pkgs,
+  inputs,
+  unstable,
+  ...
+}:
+{
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
@@ -45,10 +51,6 @@
     qemu
     OVMF
     ripgrep
-    nvtopPackages.nvidia
-    yt-dlp
-    android-tools
-    w3m
 
     # Python
     python312

@@ -46,8 +46,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, minegrub-theme
-    , spicetify-nix, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      minegrub-theme,
+      spicetify-nix,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       homeStateVersion = "25.11";
@@ -64,29 +72,47 @@
         }
       ];
 
-      makeSystem = { hostname, stateVersion }:
+      makeSystem =
+        { hostname, stateVersion }:
         nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = { inherit inputs system stateVersion hostname user; };
+          specialArgs = {
+            inherit
+              inputs
+              system
+              stateVersion
+              hostname
+              user
+              ;
+          };
 
           modules = [
             minegrub-theme.nixosModules.default
             ./hosts/${hostname}/configuration.nix
           ];
         };
-    in {
-      nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
-        configs // {
-          "${host.hostname}" =
-            makeSystem { inherit (host) hostname stateVersion; };
-        }) { } hosts;
+    in
+    {
+      nixosConfigurations = nixpkgs.lib.foldl' (
+        configs: host:
+        configs
+        // {
+          "${host.hostname}" = makeSystem { inherit (host) hostname stateVersion; };
+        }
+      ) { } hosts;
 
       homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [ ./home-manager/home.nix ];
 
         extraSpecialArgs = {
-          inherit system unstable inputs homeStateVersion user;
+          inherit
+            system
+            unstable
+            inputs
+            homeStateVersion
+            user
+            ;
         };
       };
     };
