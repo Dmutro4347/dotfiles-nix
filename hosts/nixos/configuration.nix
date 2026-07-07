@@ -6,33 +6,27 @@
 }:
 
 let
-  modules = ../../modules;
+  paths = ../../modules/paths.nix;
 in
 
 {
   imports = [
     ./hardware-configuration.nix
     ./local-packages.nix
-    (modules + "/audio.nix")
-    (modules + "/boot.nix")
-    (modules + "/env.nix")
-    (modules + "/kernel.nix")
-    (modules + "/network.nix")
-    (modules + "/nix.nix")
-    (modules + "/timezone.nix")
-    (modules + "/user.nix")
-    (modules + "/touchpad.nix")
-    (modules + "/gc.nix")
-    (modules + "/hyprland.nix")
-    (modules + "/locale.nix")
-    (modules + "/greetd.nix")
-    (modules + "/nh.nix")
-    (modules + "/docker.nix")
-    (modules + "/libvirt.nix")
-    (modules + "/nix-ld.nix")
-    (modules + "/battery.nix")
-    (modules + "/openssh.nix")
-    (modules + "/bluetooth.nix")
+    (paths.core)
+    (paths.gui + "/greetd.nix")
+    (paths.gui + "/hyprland.nix")
+    (paths.hardware + "/audio.nix")
+    (paths.hardware + "/battery.nix")
+    (paths.hardware + "/touchpad.nix")
+    (paths.hardware + "/bluetooth.nix")
+    (paths.scripts + "/autoupdate.nix")
+    (paths.scripts + "/gc.nix")
+    (paths.scripts + "/nh.nix")
+    (paths.services + "/docker.nix")
+    (paths.services + "/libvirt.nix")
+    (paths.services + "/openssh.nix")
+
   ];
 
   environment.systemPackages = [ pkgs.home-manager ];
