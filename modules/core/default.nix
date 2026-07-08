@@ -8,5 +8,5 @@
     ./network.nix
     ./timezone.nix
 
-  ]
+  ];
 }

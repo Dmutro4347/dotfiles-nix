@@ -6,6 +6,6 @@
   services = ./services;
 
   env = ./env.nix;
-  user = ./user.nix;
+  users = ./users.nix;
 
 }

@@ -44,9 +44,17 @@
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    import-tree.url = "github:vic/import-tree";
   };
 
   outputs =
+  inputs @
     {
       self,
       nixpkgs,
@@ -54,66 +62,12 @@
       home-manager,
       minegrub-theme,
       spicetify-nix,
+      flake-parts,
       ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      homeStateVersion = "25.11";
-      unstable = import nixpkgs-unstable { inherit system; };
-      user = "arfors";
-      hosts = [
-        {
-          hostname = "nixos";
-          stateVersion = "25.11";
-        }
-        {
-          hostname = "hp-pc";
-          stateVersion = "25.11";
-        }
-      ];
-
-      makeSystem =
-        { hostname, stateVersion }:
-        nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = {
-            inherit
-              inputs
-              system
-              stateVersion
-              hostname
-              user
-              ;
-          };
-
-          modules = [
-            minegrub-theme.nixosModules.default
-            ./hosts/${hostname}/configuration.nix
-          ];
-        };
-    in
+    }: flake-parts.lib.mkFlake {inherit inputs; }
     {
-      nixosConfigurations = nixpkgs.lib.foldl' (
-        configs: host:
-        configs
-        // {
-          "${host.hostname}" = makeSystem { inherit (host) hostname stateVersion; };
-        }
-      ) { } hosts;
-
-      homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home-manager/home.nix ];
-
-        extraSpecialArgs = {
-          inherit
-            system
-            unstable
-            inputs
-            homeStateVersion
-            user
-            ;
-        };
-      };
+      imports [
+        ./hosts/nixos/configuration.nix 
+        ];
     };
 }
