@@ -52,21 +52,11 @@
 
     import-tree.url = "github:vic/import-tree";
   };
-
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      minegrub-theme,
-      spicetify-nix,
-      flake-parts,
-      ...
-    }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        ./hosts/nixos/configuration.nix
+        (inputs.import-tree ./modules)
       ];
     };
 }
