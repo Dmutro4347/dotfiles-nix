@@ -13,7 +13,7 @@ let
 in
 {
   flake.modules.nixos.base = {
-    system.stateVersion = "25.06";
+    system.stateVersion = "26.05";
     imports = [
       nixos.boot
       nixos.locale
