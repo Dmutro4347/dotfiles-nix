@@ -1,5 +1,6 @@
-{
+{ inputs, ... }: {
   flake.modules.nixos.boot = { pkgs, ... }: {
+    imports = [ inputs.minegrub-theme.nixosModules.default ];
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.grub = {
       enable = true;
