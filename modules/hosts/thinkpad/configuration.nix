@@ -9,6 +9,6 @@ in
       nixos.base
     ];
     networking.hostName = "thinkpad";
-    system.stateVersion = "25.06";
+    system.stateVersion = "26.05";
   };
 }
