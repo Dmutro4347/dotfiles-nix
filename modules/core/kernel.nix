@@ -1,3 +1,7 @@
-{ pkgs, ... }: {
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+{
+  flake.modules.core.kernel =
+
+    { pkgs, ... }: {
+      boot.kernelPackages = pkgs.linuxPackages_zen;
+    };
 }
