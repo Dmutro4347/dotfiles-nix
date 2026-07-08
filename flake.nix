@@ -54,8 +54,7 @@
   };
 
   outputs =
-  inputs @
-    {
+    inputs@{
       self,
       nixpkgs,
       nixpkgs-unstable,
@@ -64,10 +63,10 @@
       spicetify-nix,
       flake-parts,
       ...
-    }: flake-parts.lib.mkFlake {inherit inputs; }
-    {
-      imports [
-        ./hosts/nixos/configuration.nix 
-        ];
+    }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        ./hosts/nixos/configuration.nix
+      ];
     };
 }
