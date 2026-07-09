@@ -4,12 +4,6 @@ let
     homeManager
     nixos
     ;
-  # commonImports = [
-  #   generic.profile
-  #   generic.primaryUser
-  #   generic.primaryUserHome
-  #   generic.nixSettings
-  # ];
 in
 {
   flake.modules.nixos.base = {
@@ -30,10 +24,10 @@ in
   flake.modules.homeManager.base = {
     imports = [
       #     generic.profile
-      homeManager.kitty
+      # homeManager.kitty
       homeManager.ranger
       homeManager.zsh
-      homeManager.stylix
+      # homeManager.stylix
       homeManager.tmux
 
       #     homeManager.atuin

@@ -1,5 +1,5 @@
 {
-  flake.module.hardware.asusctl =
+  flake.module.nixos.asusctl =
     { config, pkgs, ... }:
 
     {
