@@ -30,11 +30,11 @@ in
   flake.modules.homeManager.base = {
     imports = [
       #     generic.profile
-      # homeManager.kitty
-      # homeManager.ranger
+      homeManager.kitty
+      homeManager.ranger
       homeManager.zsh
-      # homeManager.stylix
-      # homeManager.tmux
+      homeManager.stylix
+      homeManager.tmux
 
       #     homeManager.atuin
       #     homeManager.bat
