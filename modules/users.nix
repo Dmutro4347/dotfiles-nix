@@ -1,10 +1,10 @@
 {
-  flake.modules.nixos.users = { pkgs, ... }: {
+  flake.modules.nixos.users = { pkgs, config, ... }: {
     programs.zsh.enable = true;
 
     users = {
       defaultUserShell = pkgs.zsh;
-      users.arfors = {
+      users.${config.primaryUser} = {
         isNormalUser = true;
         extraGroups = [
           "wheel"

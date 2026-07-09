@@ -23,15 +23,29 @@
     nixosConfigurations = lib.mapAttrs (
       name: cfg:
       inputs.nixpkgs.lib.nixosSystem {
+        # 1. Прокидаємо inputs для NixOS модулів
+        specialArgs = {
+          inherit inputs;
+        };
+
         modules = [
           inputs.home-manager.nixosModules.home-manager
-          {
+
+          # Використовуємо функцію, щоб безпечно дістати pkgs.system
+          ({ pkgs, ... }: {
             networking.hostName = lib.mkDefault name;
+
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+
+              # 2. Прокидаємо inputs та мапимо nixpkgs-unstable в "unstable" для Home Manager
+              extraSpecialArgs = {
+                inherit inputs;
+                # Беремо пакети з твого інпуту nixpkgs-unstable, але називаємо змінну unstable:
+              };
             };
-          }
+          })
           cfg.module
         ];
       }

@@ -3,18 +3,18 @@ let
   inherit (config.flake.modules)
     homeManager
     nixos
+    generic
     ;
-  # commonImports = [
-  #   generic.profile
-  #   generic.primaryUser
-  #   generic.primaryUserHome
-  #   generic.nixSettings
-  # ];
+
+  commonImports = [
+    generic.primaryUser
+    generic.primaryUserHome
+  ];
 in
 {
   flake.modules.nixos.base = {
     system.stateVersion = "26.05";
-    imports = [
+    imports = commonImports ++ [
       nixos.boot
       nixos.locale
       nixos.network
@@ -29,12 +29,9 @@ in
 
   flake.modules.homeManager.base = {
     imports = [
-      #     generic.profile
-      # homeManager.kitty
-      # homeManager.ranger
+      homeManager.ranger
       homeManager.zsh
-      # homeManager.stylix
-      # homeManager.tmux
+      homeManager.tmux
 
       #     homeManager.atuin
       #     homeManager.bat
