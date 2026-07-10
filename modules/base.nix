@@ -23,6 +23,7 @@ in
       nixos.nix-ld
       nixos.kernel
       nixos.users
+nixos.env
     ];
     home-manager.sharedModules = [ homeManager.base ];
   };

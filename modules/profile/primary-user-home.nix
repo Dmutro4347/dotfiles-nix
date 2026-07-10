@@ -10,6 +10,7 @@
     }:
     {
       home-manager.users.${config.primaryUser} = {
+
         # extraSpecialArgs = {
         #   inherit
         #     system
@@ -21,6 +22,7 @@
           username = config.primaryUser;
           homeDirectory = "/home/${config.primaryUser}";
           stateVersion = "26.05";
+
         };
       };
     };

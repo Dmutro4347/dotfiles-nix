@@ -38,6 +38,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              backupFileExtension = "backup";
 
               # 2. Прокидаємо inputs та мапимо nixpkgs-unstable в "unstable" для Home Manager
               extraSpecialArgs = {

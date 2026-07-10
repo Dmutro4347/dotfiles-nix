@@ -24,13 +24,15 @@ in
       nixos.libvirt
       nixos.openssh
       nixos.greetd
-      nixos.hyprland
+      nixos.niri
+      nixos.nh
 
     ];
     home-manager.sharedModules = [
       homeManager.stylix
       homeManager.kitty
       homeManager.dunkshell
+      homeManager.niri
       # homeManager.hyprland
       homeManager.cli-tools
       homeManager.desktop-apps
@@ -39,6 +41,7 @@ in
       homeManager.gpg-agent
       homeManager.nvchad
       homeManager.wm-tools
+      # homeManager.gnome
 
     ];
     primaryUser = "arfors";

@@ -5,6 +5,7 @@
 
       settings = {
         # background_opacity = lib.mkForce 0.87;
+        hide_window_decorations = "yes";
         window_margin_width = lib.mkForce 15;
 
         #   foreground = "#e5e1cf";
