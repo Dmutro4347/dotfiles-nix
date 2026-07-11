@@ -24,6 +24,7 @@
         waybar.enable = false;
         wofi.enable = false;
         tmux.enable = true;
+        spicetify.enable = true;
       };
 
       cursor = {
@@ -55,7 +56,7 @@
         };
       };
 
-      iconTheme = {
+      icons = {
         enable = true;
         package = pkgs.papirus-icon-theme;
         dark = "Papirus-Dark";

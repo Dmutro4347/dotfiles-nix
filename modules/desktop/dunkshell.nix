@@ -41,19 +41,17 @@
         };
 
         enableSystemMonitoring = true;
-        enableDynamicTheming = true;
-        # managePluginSettings = false;
-        plugins = {
-          # Simply enable plugins by their ID (from the registry)
-          dankBatteryAlerts.enable = true;
-          # dockerManager.enable = true;
-
-          # Add plugin-specific settings
-          mediaPlayer = {
-            enable = true;
-
-          };
-        };
+        # enableDynamicTheming = true;
+        #  managePluginSettings = false;
+        # plugins = {
+        #   # Simply enable plugins by their ID (from the registry)
+        #   dankBatteryAlerts.enable = true;
+        #   # dockerManager.enable = true;
+        #
+        #   # Add plugin-specific settings
+        #   mediaPlayer.enable = true;
+        #
+        # };
       };
     };
 }

@@ -10,6 +10,8 @@
         slurp
         wl-clipboard
         pywal
+        thunar
+        # xwayland-satellite
       ];
     };
 }
