@@ -315,7 +315,7 @@ in
 
           # float, class:(org.quickshell)
           {
-            matches = [ { app-id = "org.quickshell"; } ];
+            matches = [ { app-id = "com.danklinux.dms"; } ];
             open-floating = true;
           }
           # Обхід бага WezTerm при початковому конфігуруванні розміру.
@@ -622,6 +622,7 @@ in
           "Mod+7".action = focus-workspace 7;
           "Mod+8".action = focus-workspace 8;
           "Mod+9".action = focus-workspace 9;
+          "Mod+0".action = focus-workspace 10;
           "Mod+Shift+1".action.move-column-to-workspace = [ 1 ];
           "Mod+Shift+2".action.move-column-to-workspace = [ 2 ];
           "Mod+Shift+3".action.move-column-to-workspace = [ 3 ];
@@ -631,6 +632,7 @@ in
           "Mod+Shift+7".action.move-column-to-workspace = [ 7 ];
           "Mod+Shift+8".action.move-column-to-workspace = [ 8 ];
           "Mod+Shift+9".action.move-column-to-workspace = [ 9 ];
+          "Mod+Shift+0".action.move-column-to-workspace = [ 10 ];
 
           # Альтернатива: рухати лише одне вікно:
           # "Mod+Ctrl+1".action.move-window-to-workspace = [ 1 ];
