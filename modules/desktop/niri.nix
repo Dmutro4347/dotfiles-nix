@@ -29,9 +29,9 @@ in
       # Тут — той самий дефолтний конфіг niri, перекладений у Nix-схему niri-flake.
       # Повна документація опцій: https://niri-wm.github.io/niri/Configuration:-Introduction
       programs.niri.settings = {
-        # environment = {
-        #   XDG_CURRENT_DESKTOP = "niri:GNOME";
-        # };
+        environment = {
+          XDG_CURRENT_DESKTOP = "niri:GNOME";
+        };
         outputs = {
           # The regex below matches any connected monitor, replacing the empty leading comma
           "eDP-1" = {
@@ -279,22 +279,22 @@ in
             matches = [ { app-id = "org.telegram.desktop"; } ];
             open-on-workspace = "2";
           }
-          {
-            matches = [ { app-id = "jetbrains-pycharm"; } ];
-            open-on-workspace = "3";
-          }
-          {
-            matches = [ { app-id = "Spotify"; } ];
-            open-on-workspace = "4";
-          }
-          {
-            matches = [ { app-id = "obsidian"; } ];
-            open-on-workspace = "5";
-          }
-          {
-            matches = [ { app-id = "firefox"; } ];
-            open-on-workspace = "9";
-          }
+          # {
+          #   matches = [ { app-id = "jetbrains-pycharm"; } ];
+          #   open-on-workspace = "3";
+          # }
+          # {
+          #   matches = [ { app-id = "Spotify"; } ];
+          #   open-on-workspace = "4";
+          # }
+          # {
+          #   matches = [ { app-id = "obsidian"; } ];
+          #   open-on-workspace = "5";
+          # }
+          # {
+          #   matches = [ { app-id = "firefox"; } ];
+          #   open-on-workspace = "9";
+          # }
 
           # float, class:(org.pulseaudio.pavucontrol)|(.blueman-manager-wrapped)|(LM Studio)
           {
@@ -315,7 +315,7 @@ in
 
           # float, class:(org.quickshell)
           {
-            matches = [ { app-id = "dev.noctalia.Noctalia"; } ];
+            matches = [ { app-id = "org.quickshell"; } ];
             open-floating = true;
           }
           # Обхід бага WezTerm при початковому конфігуруванні розміру.
@@ -388,11 +388,11 @@ in
           };
           "Mod+Shift+D" = {
             # hotkey-overlay = "Run an Application: wofi";
-            action = spawn-sh "noctalia msg panel-toggle launcher";
+            action = spawn-sh "dms ipc call launcher toggle";
           };
           "Mod+N" = {
             # description = "Open notifications";
-            action = spawn-sh "noctalia msg notification-invoke-latest";
+            action = spawn-sh "dms ipc call notifications open";
           };
 
           # "Mod+V" = {
@@ -442,19 +442,19 @@ in
           # "-l 1.0" обмежує гучність до 100%.
           "XF86AudioRaiseVolume" = {
             allow-when-locked = true;
-            action = spawn-sh "noctalia msg volume-up";
+            action = spawn-sh "dms ipc call audio increment 5";
           };
           "XF86AudioLowerVolume" = {
             allow-when-locked = true;
-            action = spawn-sh "noctalia msg volume-down";
+            action = spawn-sh "dms ipc call audio decrement 5";
           };
           "XF86AudioMute" = {
             allow-when-locked = true;
-            action = spawn-sh "noctalia msg volume-mute";
+            action = spawn-sh "dms ipc call audio mute";
           };
           "XF86AudioMicMute" = {
             allow-when-locked = true;
-            action = spawn-sh "noctalia msg mic-mute";
+            action = spawn-sh "dms ipc call audio micmute";
           };
 
           # Медіаклавіші через playerctl — працює з будь-яким MPRIS-плеєром.
@@ -479,11 +479,11 @@ in
           "XF86MonBrightnessUp" = {
             allow-when-locked = true;
 
-            action = spawn-sh "noctalia msg brightness-up";
+            action = spawn-sh "dms ipc call brightness increment 5 ''";
           };
           "XF86MonBrightnessDown" = {
             allow-when-locked = true;
-            action = spawn-sh "noctalia msg brightness-down";
+            action = spawn-sh "dms ipc call brightness decrement 5 ''";
           };
 
           # Overview — огляд усіх робочих просторів і вікон.
@@ -724,7 +724,7 @@ in
           };
 
           # Дія quit показує діалог підтвердження, щоб уникнути випадкового виходу.
-          "Mod+Shift+E".action = spawn-sh "noctalia msg panel-toggle session";
+          "Mod+Shift+E".action = spawn-sh "dms ipc call powermenu toggle";
           # "Mod".action = quit;
 
           # Вимикає монітори. Щоб увімкнути назад — будь-яке введення

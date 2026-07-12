@@ -27,13 +27,13 @@ in
       nixos.niri
       nixos.nh
       nixos.xdg
-      # nixos.gnome
+      nixos.dunkshell
 
     ];
     home-manager.sharedModules = [
       homeManager.stylix
       homeManager.kitty
-      homeManager.noctalia
+      # homeManager.dunkshell
       homeManager.niri
       # homeManager.hyprland
       homeManager.cli-tools

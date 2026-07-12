@@ -1,14 +1,16 @@
 {
-  flake.modules.homeManager.dunkshell =
+  flake.modules.nixos.dunkshell =
     {
       inputs,
       pkgs,
+      lib,
       ...
     }:
     {
       imports = [
-        inputs.dms.homeModules.dank-material-shell
-        inputs.dms-plugin-registry.modules.default
+        # inputs.dms.homeModules.dank-material-shell
+        inputs.dms-plugin-registry.nixosModules.default
+        inputs.dms.nixosModules.default
         # inputs.dms.homeModules.niri
       ];
       programs.dank-material-shell = {
@@ -41,17 +43,32 @@
         };
 
         enableSystemMonitoring = true;
-        # enableDynamicTheming = true;
-        #  managePluginSettings = false;
-        # plugins = {
-        #   # Simply enable plugins by their ID (from the registry)
-        #   dankBatteryAlerts.enable = true;
-        #   # dockerManager.enable = true;
-        #
-        #   # Add plugin-specific settings
-        #   mediaPlayer.enable = true;
-        #
-        # };
+        enableDynamicTheming = true;
+        plugins = {
+          #          Simply enable plugins by their ID (from the registry)
+          dankBatteryAlerts.enable = true;
+          # dockerManager.enable = true;
+
+          # Add plugin-specific settings
+          mediaPlayer.enable = true;
+
+        };
       };
+      # додати в flake.modules.homeManager.dunkshell, поруч з programs.dank-material-shell
+      # home.activation.makeDmsSettingsMutable = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      #   settingsFile="$HOME/.config/DankMaterialShell/settings.json"
+      #   if [ -L "$settingsFile" ]; then
+      #     target="$(readlink -f "$settingsFile" || true)"
+      #     if [ -n "$target" ] && [ -f "$target" ]; then
+      #       $DRY_RUN_CMD rm -f "$settingsFile"
+      #       $DRY_RUN_CMD cp "$target" "$settingsFile"
+      #     else
+      #       $DRY_RUN_CMD rm -f "$settingsFile"
+      #       $DRY_RUN_CMD sh -c "echo '{}' > '$settingsFile'"
+      #     fi
+      #     $DRY_RUN_CMD chmod u+w "$settingsFile"
+      #   fi
+      # '';
+      #
     };
 }

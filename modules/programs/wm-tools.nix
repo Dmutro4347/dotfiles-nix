@@ -11,7 +11,7 @@
         wl-clipboard
         pywal
         thunar
-        # xwayland-satellite
+        xwayland-satellite
       ];
     };
 }

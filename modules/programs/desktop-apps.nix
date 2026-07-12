@@ -19,7 +19,6 @@
         virt-manager
         firefox
         lmstudio
-        # spotify
       ];
 
       imports = [
