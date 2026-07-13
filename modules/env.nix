@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.env = {
+  flake.modules.nixos.env = { pkgs, ... }: {
+    environment.systemPackages = [ pkgs.ntfs3g ];
     environment.sessionVariables = rec {
       TERMINAL = "kitty";
       EDITOR = "nvim";

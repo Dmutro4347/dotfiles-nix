@@ -10,7 +10,14 @@ let
 in
 {
   flake.modules.nixos.niri = {
-    imports = [ inputs.niri.nixosModules.niri ];
+    imports = [
+      inputs.niri.nixosModules.niri
+      nixos.compositorCommon
+    ];
+    home-manager.sharedModules = [
+      homeManager.compositorCommon
+      homeManager.niri
+    ];
 
     programs.niri.enable = true;
 
@@ -29,9 +36,9 @@ in
       # Тут — той самий дефолтний конфіг niri, перекладений у Nix-схему niri-flake.
       # Повна документація опцій: https://niri-wm.github.io/niri/Configuration:-Introduction
       programs.niri.settings = {
-        environment = {
-          XDG_CURRENT_DESKTOP = "niri:GNOME";
-        };
+        # environment = {
+        # XDG_CURRENT_DESKTOP = "niri:GNOME";
+        # };
         outputs = {
           # The regex below matches any connected monitor, replacing the empty leading comma
           "eDP-1" = {
@@ -83,16 +90,16 @@ in
 
           mouse = {
             enable = true;
-            # natural-scroll = true;
-            # accel-speed = 0.2;
+            natural-scroll = true;
+            accel-speed = 0.2;
             # accel-profile = "flat";
             # scroll-method = "no-scroll";
           };
 
           trackpoint = {
             enable = true;
-            # natural-scroll = true;
-            # accel-speed = 0.2;
+            natural-scroll = true;
+            accel-speed = 0.2;
             # accel-profile = "flat";
             # scroll-method = "on-button-down";
             # scroll-button = 273;
@@ -105,10 +112,10 @@ in
 
           # Автоматично фокусувати вікна/виводи при наведенні миші.
           # max-scroll-amount="0%" — працює лише для вікон, які вже повністю на екрані.
-          # focus-follows-mouse = {
-          #   enable = true;
-          #   max-scroll-amount = "0%";
-          # };
+          focus-follows-mouse = {
+            enable = true;
+            max-scroll-amount = "10%";
+          };
         };
 
         # ---------------------------------------------------------------------
@@ -423,10 +430,10 @@ in
               spawn = [ "Telegram" ];
             };
           };
-          # "Super+Alt+L" = {
-          #   # description = "Lock the Screen: swaylock";
-          #   action.spawn = "swaylock";
-          # };
+          "Super+Alt+L" = {
+            # description = "Lock the Screen: swaylock";
+            action = spawn-sh "dms ipc call lock lock";
+          };
           #
           # spawn-sh — для shell-команд (пайпи, декілька команд і т.д.).
           # Увесь рядок передається як один аргумент, буквально в `sh -c`.

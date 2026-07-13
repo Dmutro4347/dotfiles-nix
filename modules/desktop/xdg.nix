@@ -1,5 +1,3 @@
-# modules/system/xdg.nix
-
 {
   flake.modules.nixos.xdg =
     { pkgs, ... }:

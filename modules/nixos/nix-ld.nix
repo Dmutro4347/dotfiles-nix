@@ -40,14 +40,14 @@
         pulseaudio
 
         # 💡 XWayland fallback (деякі AppImage це потребують)
-        xorg.libX11
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXrandr
-        xorg.libXext
-        xorg.libXfixes
-        xorg.libXrender
-        xorg.libXinerama
+        libx11
+        libxcursor
+        libxi
+        libxrandr
+        libxext
+        libxfixes
+        libxrender
+        libxinerama
       ];
     };
   };

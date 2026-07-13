@@ -9,6 +9,7 @@ let
   commonImports = [
     generic.primaryUser
     generic.primaryUserHome
+    generic.profile
   ];
 in
 {
@@ -22,39 +23,22 @@ in
       nixos.nix
       nixos.nix-ld
       nixos.kernel
+      nixos.env
+      nixos.gc
+      nixos.nh
       nixos.users
-nixos.env
     ];
     home-manager.sharedModules = [ homeManager.base ];
   };
 
   flake.modules.homeManager.base = {
     imports = [
-      homeManager.ranger
-      homeManager.zsh
-      homeManager.tmux
-
-      #     homeManager.atuin
-      #     homeManager.bat
-      #     homeManager.btop
-      #     homeManager.catppuccin
-      #     homeManager.claudeCode
-      #     homeManager.fastfetch
-      #     homeManager.fonts
-      #     homeManager.fzf
-      #     homeManager.git
-      #     homeManager.go
-      #     homeManager.gpg
-      #     homeManager.granted
-      #     homeManager.k8s
-      #     homeManager.mcp
-      #     homeManager.neovim
-      #     homeManager.opencode
-      #     homeManager.packages
-      #     homeManager.scripts
-      #     homeManager.starship
-      #     homeManager.tmux
-      #     homeManager.zsh
+      generic.profile
+      homeManager.fish
+      homeManager.cli-tools
+      homeManager.dev-tools
+      homeManager.nvchad
+      homeManager.git
     ];
   };
 }

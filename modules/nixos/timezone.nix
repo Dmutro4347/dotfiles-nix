@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.timezone = {
-    time.timeZone = "Europe/Kiev";
+  flake.modules.nixos.timezone = { config, ... }: {
+    time.timeZone = config.profile.timezone;
   };
 }

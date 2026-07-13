@@ -11,12 +11,6 @@
     {
       home-manager.users.${config.primaryUser} = {
 
-        # extraSpecialArgs = {
-        #   inherit
-        #     system
-        #     inputs
-        #     ;
-        # };
         programs.home-manager.enable = true;
         home = {
           username = config.primaryUser;

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.dunkshell =
+  flake.modules.nixos.dankshell =
     {
       inputs,
       pkgs,
@@ -11,8 +11,13 @@
         # inputs.dms.homeModules.dank-material-shell
         inputs.dms-plugin-registry.nixosModules.default
         inputs.dms.nixosModules.default
+        inputs.dms.nixosModules.greeter
         # inputs.dms.homeModules.niri
       ];
+      programs.dank-material-shell.greeter = {
+        enable = true;
+        compositor.name = "niri";
+      };
       programs.dank-material-shell = {
         enable = true;
         # quickshell.package = pkgs.quickshell;

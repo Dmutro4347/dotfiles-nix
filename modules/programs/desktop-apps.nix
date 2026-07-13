@@ -19,6 +19,7 @@
         virt-manager
         firefox
         lmstudio
+        jetbrains.pycharm
       ];
 
       imports = [
@@ -40,6 +41,17 @@
           adblockify
           shuffle
         ];
+      };
+
+      programs.kitty = {
+        enable = true;
+
+        settings = {
+          # background_opacity = lib.mkForce 0.87;
+          hide_window_decorations = "yes";
+          window_margin_width = lib.mkForce 15;
+
+        };
       };
     };
 }

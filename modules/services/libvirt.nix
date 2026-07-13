@@ -8,9 +8,8 @@
     virtualisation.libvirtd = {
       enable = true;
       qemu = {
-        package = pkgs.qemu_full;
+        package = pkgs.qemu;
         swtpm.enable = true; # TPM 2.0 (для Win11, наприклад)
-        # ovmf.enable = true; # UEFI прошивка
       };
     };
 
