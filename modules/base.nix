@@ -27,6 +27,7 @@ in
       nixos.gc
       nixos.nh
       nixos.users
+      nixos.swap
     ];
     home-manager.sharedModules = [ homeManager.base ];
   };

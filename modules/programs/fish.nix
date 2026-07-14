@@ -1,6 +1,11 @@
 {
   flake.modules.homeManager.fish =
-    { pkgs, config, ... }:
+    {
+      pkgs,
+      lib,
+      config,
+      ...
+    }:
     {
       programs.fish = {
         enable = true;
@@ -27,14 +32,18 @@
           ".." = "cd ..";
         };
         plugins = [
-          # аналоги oh-my-zsh "z" і "sudo" — fish-нативні плагіни
+          # нативний fish-порт теми robbyrussell (oh-my-zsh) — не в nixpkgs, тягнемо напряму
           {
-            name = "autojump";
-            src = pkgs.autojump;
-          } # якщо є в nixpkgs, або лишити pkgs.autojump як CLI
+            name = "theme-robbyrussell";
+            src = pkgs.fetchFromGitHub {
+              owner = "oh-my-fish";
+              repo = "theme-robbyrussell";
+              rev = "master";
+              sha256 = "sha256-l/fctaS58IZKM5/MsYC+WQZ0GWZGZ6SWT+bA5QoODbU=";
+            };
+          }
         ];
       };
-
       programs.fzf = {
         enable = true;
         enableFishIntegration = true; # замінює ручний source key-bindings.fzf/completion.fzf

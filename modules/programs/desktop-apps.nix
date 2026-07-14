@@ -7,9 +7,6 @@
       lib,
       ...
     }:
-    let
-      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
-    in
     {
       home.packages = with pkgs; [
         qbittorrent
@@ -20,29 +17,10 @@
         firefox
         lmstudio
         jetbrains.pycharm
+        spotify
       ];
 
-      imports = [
-        #     # Home Manager модуль від Spicetify
-        inputs.spicetify-nix.homeManagerModules.spicetify
-        # inputs.spicetify-nix.nixosModules.default
-      ];
-
-      programs.spicetify = {
-        enable = true;
-
-        # ОБОВ'ЯЗКОВО: вказуємо робочу тему, щоб інтерфейс міг відмалюватися
-        # theme = spicePkgs.themes.catppuccin;
-
-        # ОПЦІОНАЛЬНО: задаємо темну колірну схему для цієї теми
-        # colorScheme = "mocha";
-
-        enabledExtensions = with spicePkgs.extensions; [
-          adblockify
-          shuffle
-        ];
-      };
-
+      #
       programs.kitty = {
         enable = true;
 

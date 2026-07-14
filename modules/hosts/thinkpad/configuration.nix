@@ -20,6 +20,7 @@ in
       nixos.libvirt
       nixos.openssh
       nixos.niri
+      # nixos.spicetify
     ];
     primaryUser = "arfors";
     system.stateVersion = "26.05";

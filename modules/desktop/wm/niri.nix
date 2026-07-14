@@ -9,19 +9,20 @@ let
   inherit (config.flake.modules) nixos homeManager;
 in
 {
-  flake.modules.nixos.niri = {
+  flake.modules.nixos.niri = { pkgs, ... }: {
     imports = [
       inputs.niri.nixosModules.niri
       nixos.compositorCommon
     ];
+    # nixpkgs.overlays = [ inputs.niri.overlays.niri ];
     home-manager.sharedModules = [
       homeManager.compositorCommon
       homeManager.niri
     ];
-
-    programs.niri.enable = true;
-
-    # security.pam.services.swaylock = { };
+    programs.niri = {
+      enable = true;
+      package = pkgs.niri;
+    };
   };
 
   flake.modules.homeManager.niri =
@@ -430,11 +431,11 @@ in
               spawn = [ "Telegram" ];
             };
           };
-          "Super+Alt+L" = {
-            # description = "Lock the Screen: swaylock";
-            action = spawn-sh "dms ipc call lock lock";
-          };
-          #
+          # "Super+Alt+L" = {
+          #   # description = "Lock the Screen: swaylock";
+          #   action = spawn-sh "dms ipc call lock lock";
+          # };
+          # #
           # spawn-sh — для shell-команд (пайпи, декілька команд і т.д.).
           # Увесь рядок передається як один аргумент, буквально в `sh -c`.
           # Приклад: стандартний біндинг перемикання читання екрана (orca).
