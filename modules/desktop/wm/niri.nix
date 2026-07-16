@@ -37,9 +37,6 @@ in
       # Тут — той самий дефолтний конфіг niri, перекладений у Nix-схему niri-flake.
       # Повна документація опцій: https://niri-wm.github.io/niri/Configuration:-Introduction
       programs.niri.settings = {
-        # environment = {
-        # XDG_CURRENT_DESKTOP = "niri:GNOME";
-        # };
         outputs = {
           # The regex below matches any connected monitor, replacing the empty leading comma
           "eDP-1" = {

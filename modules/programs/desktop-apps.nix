@@ -1,4 +1,12 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+let
+
+  inherit (config.flake.modules)
+    nixos
+    homeManager
+    ;
+in
+{
   flake.modules.homeManager.desktop-apps =
     {
       config,
@@ -8,6 +16,10 @@
       ...
     }:
     {
+      imports = [
+        nixos.spicetify
+        homeManager.kitty
+      ];
       home.packages = with pkgs; [
         qbittorrent
         kitty
@@ -17,19 +29,10 @@
         firefox
         lmstudio
         jetbrains.pycharm
-        spotify
+        discord
       ];
 
       #
-      programs.kitty = {
-        enable = true;
 
-        settings = {
-          # background_opacity = lib.mkForce 0.87;
-          hide_window_decorations = "yes";
-          window_margin_width = lib.mkForce 15;
-
-        };
-      };
     };
 }

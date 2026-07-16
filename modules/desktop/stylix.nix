@@ -24,7 +24,6 @@
         waybar.enable = false;
         wofi.enable = false;
         tmux.enable = true;
-        spicetify.enable = false;
       };
 
       cursor = {
