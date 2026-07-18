@@ -11,6 +11,7 @@
 
           };
           pull.rebase = true;
+          extraConfig.init.defaultBranch = "main";
         };
       };
     };
