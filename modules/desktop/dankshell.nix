@@ -27,15 +27,20 @@
         };
 
         enableSystemMonitoring = true;
-        enableDynamicTheming = true;
         plugins = {
-          #          Simply enable plugins by their ID (from the registry)
           dankBatteryAlerts.enable = true;
           # dockerManager.enable = true;
 
           # Add plugin-specific settings
-          mediaPlayer.enable = true;
+          mediaPlayer = {
+            enable = false;
 
+            # You can only define settings here if using the home-manager module
+            settings = {
+              preferredSource = "spotify";
+            };
+
+          };
         };
       };
       # додати в flake.modules.homeManager.dunkshell, поруч з programs.dank-material-shell

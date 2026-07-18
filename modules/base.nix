@@ -28,6 +28,8 @@ in
       nixos.nh
       nixos.users
       nixos.swap
+      nixos.nvchad
+
     ];
     home-manager.sharedModules = [ homeManager.base ];
   };
@@ -36,9 +38,9 @@ in
     imports = [
       generic.profile
       homeManager.fish
+      # homeManager.nvchad
       homeManager.cli-tools
       homeManager.dev-tools
-      homeManager.nvchad
       homeManager.git
     ];
   };

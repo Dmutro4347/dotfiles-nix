@@ -21,10 +21,7 @@
           sw = "nh os switch";
           upd = "nh os switch --update";
           hms = "nh home switch";
-          pkgs = "nvim /home/arfors/flake/home-manager/home-packages.nix";
-          r = "ranger";
           vi = "nvim";
-          microfetch = "microfetch && echo";
           gs = "git status";
           ga = "git add";
           gc = "git commit";

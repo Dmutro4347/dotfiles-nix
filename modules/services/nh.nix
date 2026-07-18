@@ -1,10 +1,8 @@
 {
-  flake.modules.nixos.nh = { user, ... }: {
+  flake.modules.nixos.nh = { config, ... }: {
     programs.nh = {
       enable = true;
-      # clean.enable = true;
-      # clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/arfors/flake";
+      flake = "/home/${config.primaryUser}/flake";
     };
   };
 }

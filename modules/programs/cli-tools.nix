@@ -21,6 +21,7 @@
         tree
         autojump
         fd
+        neovim
 
       ];
 

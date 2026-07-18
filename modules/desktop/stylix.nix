@@ -14,6 +14,8 @@
       powerline-symbols
       nerd-fonts.jetbrains-mono
     ];
+    home.pointerCursor.enable = true;
+    stylix.enableReleaseChecks = false;
 
     stylix = {
       enable = true;

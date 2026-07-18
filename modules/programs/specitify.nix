@@ -1,10 +1,10 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.spicetify =
+  flake.modules.homeManager.spicetify =
     { pkgs, ... }:
     {
       imports = [
-        inputs.spicetify-nix.nixosModules.spicetify
+        inputs.spicetify-nix.homeManagerModules.spicetify
       ];
       programs.spicetify =
         let
@@ -13,11 +13,10 @@
         {
           enable = true;
           wayland = true;
-          theme = spicePkgs.themes.catppuccin;
-          colorScheme = "mocha";
+          # theme = spicePkgs.themes.catppuccin;
+          # colorScheme = "mocha";
           enabledExtensions = with spicePkgs.extensions; [
             adblockify
-            # hidePodcasts
             shuffle # shuffle+ (special characters are sanitized out of extension names)
           ];
         };

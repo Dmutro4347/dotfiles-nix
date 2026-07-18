@@ -1,9 +1,9 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 let
 
   inherit (config.flake.modules)
-    nixos
     homeManager
+    nixos
     ;
 in
 {
@@ -17,7 +17,7 @@ in
     }:
     {
       imports = [
-        nixos.spicetify
+        homeManager.spicetify
         homeManager.kitty
       ];
       home.packages = with pkgs; [
@@ -31,8 +31,6 @@ in
         jetbrains.pycharm
         discord
       ];
-
-      #
 
     };
 }

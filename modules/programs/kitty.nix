@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.kitty = {
+  flake.modules.homeManager.kitty = { lib, ... }: {
     programs.kitty = {
       enable = true;
 
@@ -9,7 +9,6 @@
         window_margin_width = lib.mkForce 15;
 
       };
-
     };
   };
 }
