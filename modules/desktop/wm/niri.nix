@@ -40,6 +40,19 @@ in
         settings = {
           # The regex below matches any connected monitor, replacing the empty leading comma;
           outputs = {
+            "eDP-1" = {
+              mode = {
+                width = 1920;
+                height = 1200;
+                refresh = 60.000;
+              };
+              position = {
+                x = 0;
+                y = 0;
+              };
+              scale = 1.0;
+            };
+
             "DP-1" = {
               mode = {
                 width = 1920;

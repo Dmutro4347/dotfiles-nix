@@ -13,7 +13,6 @@
             email = lib.mkOption { type = lib.types.str; };
             fullName = lib.mkOption { type = lib.types.str; };
             avatar = lib.mkOption { type = lib.types.path; };
-
             timezone = lib.mkOption { type = lib.types.str; };
             locale = lib.mkOption {
               type = lib.types.submodule {
