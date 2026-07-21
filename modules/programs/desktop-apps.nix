@@ -30,6 +30,7 @@ in
         lmstudio
         jetbrains.pycharm
         discord
+        antigravity
       ];
 
     };
