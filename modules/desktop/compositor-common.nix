@@ -8,7 +8,6 @@ in
       nixos.audio
       nixos.autoupdate
       nixos.xdg
-      nixos.dankshell
       nixos.kdeconnect
     ];
 
@@ -22,6 +21,7 @@ in
       homeManager.wm-tools
       homeManager.gpg-agent
       homeManager.kdeconnect
+      homeManager.noctalia
     ];
 
   };

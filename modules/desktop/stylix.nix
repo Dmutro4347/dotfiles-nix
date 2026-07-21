@@ -23,9 +23,9 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       targets = {
         neovim.enable = false;
-        waybar.enable = false;
-        wofi.enable = false;
         tmux.enable = true;
+        # noctalia.enable = true;
+        noctalia-shell.enable = true;
       };
 
       cursor = {
