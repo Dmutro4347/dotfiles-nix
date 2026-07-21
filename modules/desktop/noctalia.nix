@@ -13,135 +13,188 @@
         enable = true;
         systemd.enable = true;
         settings = {
-          widget = {
-            # Ліва частина — індикатор активного вікна (Spotify • назва треку)
-            active_window = {
-              type = "active_window";
-              display = "icon_and_text";
-              title_scroll = "on_hover";
-              icon_size = 14;
-            };
-
-            # Центр — спектр + плеєр + кнопки
-            audio-vis = {
-              type = "audio_visualizer";
-              width = 40;
-              bands = 12;
-              show_when_idle = false;
-              color_1 = "primary";
-              color_2 = "secondary";
-            };
-
-            media = {
-              type = "media";
-              album_art_only = false;
-              hide_artist = false;
-              artist_first = false;
-              art_size = 18;
-              title_scroll = "on_hover";
-              hide_when_no_media = true;
-              enable_scroll = true;
-            };
-
-            media-prev = {
-              type = "custom_button";
-              glyph = "player-skip-back";
-              command = "playerctl previous";
-            };
-            media-playpause = {
-              type = "custom_button";
-              glyph = "player-play";
-              command = "playerctl play-pause";
-            };
-            media-next = {
-              type = "custom_button";
-              glyph = "player-skip-forward";
-              command = "playerctl next";
-            };
-
-            clock = {
-              type = "clock";
-              format = "{:%H:%M} • {:%a %d}"; # 13:12 • вт 21 (день тижня — з системної локалі)
-            };
-
-            # Права частина
-            clipboard = {
-              type = "clipboard";
-            };
-
-            cpu = {
-              type = "sysmon";
-              stat = "cpu_usage";
-              display = "text";
-            };
-
-            battery = {
-              type = "battery";
-              device = "auto";
-              display_mode = "icon";
-              show_label = true;
-            };
-
-            network = {
-              type = "network";
-              show_label = false;
-            };
-
-            volume = {
-              type = "volume";
-              device = "output";
-              show_label = false;
-            };
-          };
-
-          bar.main = {
-            position = "top";
-            thickness = 34;
-
+          bar.default = {
+            enabled = true;
+            thickness = 30;
+            scale = 1.1000000089406967;
+            margin_edge = 5;
+            margin_ends = 10;
             start = [
               "workspaces"
+              "spacer_3"
               "active_window"
             ];
-
-            center = [ "group:media-block" ];
-
+            center = [
+              "media"
+              "spacer_2"
+              "clock"
+            ];
             end = [
               "clipboard"
-              "cpu"
               "battery"
+              "bluetooth"
               "network"
               "volume"
-            ];
-
-            capsule_group = [
-              {
-                id = "media-block";
-                members = [
-                  "audio-vis"
-                  "media"
-                  "media-prev"
-                  "media-playpause"
-                  "media-next"
-                  "clock"
-                ];
-                fill = "surface_variant";
-                radius = 8.0;
-                padding = 6;
-              }
+              "session"
             ];
           };
+        };
 
-          widget.workspaces = {
-            style = "regular";
-            display = "none"; # без цифр, тільки пігулки-крапки — як на скріні
-            active_pill_size = 2.2;
-            inactive_pill_size = 1.0;
-            focused_color = "primary";
-            occupied_color = "secondary";
-            empty_color = "surface_variant";
+        control_center.shortcuts = [
+          { type = "wifi"; }
+          { type = "bluetooth"; }
+          { type = "nightlight"; }
+          { type = "notification"; }
+          { type = "power_profile"; }
+          { type = "weather"; }
+        ];
+
+        idle = {
+          behavior_order = [
+            "lock"
+            "screen-off"
+            "lock-and-suspend"
+            "idle-behavior"
+          ];
+
+          behavior = {
+            lock = {
+              action = "lock";
+              enabled = true; # ← увімкнено
+              timeout = 60.0;
+            };
+            "screen-off" = {
+              action = "screen_off";
+              enabled = true; # ← увімкнено
+              timeout = 660.0;
+            };
+            "lock-and-suspend" = {
+              action = "lock_and_suspend";
+              enabled = true; # ← увімкнено
+              timeout = 900.0;
+            };
+            "idle-behavior" = {
+              action = "command";
+              enabled = false; # цей лишив вимкненим — не мав команди на скріні
+              timeout = 600.0;
+            };
+          };
+        };
+
+        location.auto_locate = true;
+
+        lockscreen.blurred_desktop = true;
+
+        lockscreen_widgets = {
+          enabled = true;
+          schema_version = 2;
+          widget_order = [ "lockscreen-login-box" ];
+
+          grid = {
+            cell_size = 16;
+            major_interval = 4;
+            visible = true;
+          };
+
+          widget."lockscreen-login-box" = {
+            type = "login_box";
+            box_width = 400.0;
+            box_height = 70.0;
+            cx = 960.0;
+            cy = 960.0;
+            rotation = 0.0;
+
+            settings = {
+              background_color = "surface_variant";
+              background_opacity = 0.88;
+              background_radius = 12.0;
+              input_opacity = 1.0;
+              input_radius = 6.0;
+              center_password_text = false;
+              show_caps_lock = true;
+              show_keyboard_layout = true;
+              show_login_button = true;
+              show_password_hint = true;
+            };
+          };
+        };
+
+        shell = {
+          screen_time_enabled = true;
+
+          panel = {
+            open_near_click_control_center = true;
+            open_near_click_session = true;
+            open_near_click_wallpaper = true;
+          };
+
+          session.actions = [
+            {
+              action = "lock";
+              enabled = true;
+              shortcut = "e";
+              variant = "default";
+              countdown_seconds = 0.0;
+            }
+            {
+              action = "lock_and_suspend";
+              enabled = true;
+              shortcut = "l";
+              variant = "default";
+              countdown_seconds = 0.0;
+            }
+            {
+              action = "reboot";
+              enabled = true;
+              shortcut = "r";
+              variant = "default";
+              countdown_seconds = 0.0;
+            }
+            {
+              action = "shutdown";
+              enabled = true;
+              shortcut = "p";
+              variant = "destructive";
+              countdown_seconds = 0.0;
+            }
+            {
+              action = "command";
+              command = "systemctl hibernate";
+              enabled = true;
+              shortcut = "h";
+              glyph = "hibernate";
+              label = "Hibernate";
+              variant = "default";
+              countdown_seconds = 0.0;
+            }
+          ];
+        };
+
+        wallpaper = {
+          directory = "/home/arfors/Pictures/Wallpapers";
+
+          default.path = "/home/arfors/Pictures/Wallpapers/waterfall.png";
+          last.path = "/home/arfors/Pictures/Wallpapers/waterfall.png";
+        };
+        shell = {
+          avatar_path = "/home/arfors/flake/modules/profile/ava.jpg";
+          panel.control_center_position = "center";
+        };
+
+        widget = {
+          battery.show_label = false;
+          clock.format = "{:%H:%M}";
+          clock.anchor = true;
+          spacer_2.type = "spacer";
+          spacer_3 = {
+            type = "spacer";
+            length = 15;
+          };
+          workspaces = {
+            capsule_radius = "auto";
+            hide_when_empty = true;
           };
         };
       };
-
     };
 }

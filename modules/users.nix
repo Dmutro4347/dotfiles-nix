@@ -16,6 +16,7 @@
           "dockerd"
           "kvm"
           "libvirtd"
+          "i2c"
         ];
       };
 

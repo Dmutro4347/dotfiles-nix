@@ -37,11 +37,6 @@ in
       # Тут — той самий дефолтний конфіг niri, перекладений у Nix-схему niri-flake.
       # Повна документація опцій: https://niri-wm.github.io/niri/Configuration:-Introduction
       programs.niri = {
-        # config = ''
-        #   include optional=true "dms/outputs.kdl"
-        #   include optional=true "dms/binds.kdl"
-        #   include optional=true "dms/wpblur.kdl"
-        # '';
         settings = {
           # The regex below matches any connected monitor, replacing the empty leading comma;
           outputs = {
@@ -305,23 +300,6 @@ in
               matches = [ { app-id = "org.telegram.desktop"; } ];
               open-on-workspace = "2";
             }
-            # {
-            #   matches = [ { app-id = "jetbrains-pycharm"; } ];
-            #   open-on-workspace = "3";
-            # }
-            # {
-            #   matches = [ { app-id = "Spotify"; } ];
-            #   open-on-workspace = "4";
-            # }
-            # {
-            #   matches = [ { app-id = "obsidian"; } ];
-            #   open-on-workspace = "5";
-            # }
-            # {
-            #   matches = [ { app-id = "firefox"; } ];
-            #   open-on-workspace = "9";
-            # }
-
             # float, class:(org.pulseaudio.pavucontrol)|(.blueman-manager-wrapped)|(LM Studio)
             {
               matches = [
@@ -341,8 +319,15 @@ in
 
             # float, class:(org.quickshell)
             {
-              matches = [ { app-id = "com.danklinux.dms"; } ];
+              matches = [ { app-id = "dev.noctalia.Noctalia"; } ];
               open-floating = true;
+              default-column-width = {
+                fixed = 1080;
+              };
+              default-window-height = {
+                fixed = 920;
+              };
+
             }
             # Обхід бага WezTerm при початковому конфігуруванні розміру.
             # Регулярка навмисно максимально специфічна (це дефолтний конфіг,
@@ -410,7 +395,7 @@ in
           # ---------------------------------------------------------------------
           # Гарячі клавіші.
           # https://niri-wm.github.io/niri/Configuration:-Key-Bindings
-          # ---------------------------------------------------------------------
+          # --------------------------------------------------------------------
           binds = with config.lib.niri.actions; {
 
             # Mod-Shift-/ (зазвичай те саме, що Mod-?) — показує список гарячих клавіш.
@@ -426,22 +411,12 @@ in
               action = spawn-sh "noctalia msg panel-toggle launcher";
             };
             "Mod+N" = {
-              # description = "Open notifications";
               action = spawn-sh "noctalia msg panel-toggle clipboard";
             };
 
-            # "Mod+V" = {
-            #   hotkey-overlay = "Toggle clipboard";
-            #   action = {
-            #     spawn = [
-            #       "dms"
-            #       "ipc"
-            #       "call"
-            #       "clipboard"
-            #       "toggle"
-            #     ];
-            #   };
-            # };
+            "Mod+Shift+S" = {
+              action = spawn-sh "noctalia msg panel-toggle control-center";
+            };
 
             "Mod+Shift+B" = {
               # description = "Open Browser";
@@ -458,19 +433,9 @@ in
                 spawn = [ "Telegram" ];
               };
             };
-            # "Super+Alt+L" = {
-            #   # description = "Lock the Screen: swaylock";
-            #   action = spawn-sh "dms ipc call lock lock";
-            # };
-            # #
             # spawn-sh — для shell-команд (пайпи, декілька команд і т.д.).
             # Увесь рядок передається як один аргумент, буквально в `sh -c`.
             # Приклад: стандартний біндинг перемикання читання екрана (orca).
-            "Super+Alt+S" = {
-              allow-when-locked = true;
-              # hotkey-overlay-title = null;
-              action = spawn-sh "pkill orca || exec orca";
-            };
 
             # Гучність через PipeWire/WirePlumber.
             # allow-when-locked=true — працює навіть коли сесія заблокована.
@@ -759,7 +724,9 @@ in
               allow-inhibiting = false;
               action = toggle-keyboard-shortcuts-inhibit;
             };
-
+            "Alt+Tab" = {
+              action = spawn-sh "noctalia msg window-switcher";
+            };
             # Дія quit показує діалог підтвердження, щоб уникнути випадкового виходу.
             "Mod+Shift+E".action = spawn-sh "noctalia msg panel-toggle session";
             # "Mod".action = quit;

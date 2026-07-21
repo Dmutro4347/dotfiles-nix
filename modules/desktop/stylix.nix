@@ -24,8 +24,11 @@
       targets = {
         neovim.enable = false;
         tmux.enable = true;
+        # noctalia.enbale = false;
+        noctalia-shell.enable = false;
+
         # noctalia.enable = true;
-        noctalia-shell.enable = true;
+        # noctalia-shell.enable = true;
       };
 
       cursor = {

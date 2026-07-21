@@ -14,7 +14,7 @@ in
       nixos.base
       # Hardware
       nixos.bluetooth
-      # nixos.nvidia
+      nixos.monitor
       # Services
       nixos.libvirt
       nixos.openssh
