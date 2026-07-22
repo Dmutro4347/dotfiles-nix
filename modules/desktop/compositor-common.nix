@@ -9,6 +9,7 @@ in
       nixos.autoupdate
       nixos.xdg
       nixos.kdeconnect
+      nixos.greetd
     ];
 
     security.polkit.enable = true;
