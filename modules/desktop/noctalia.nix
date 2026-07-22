@@ -55,29 +55,30 @@
               "lock"
               "screen-off"
               "lock-and-suspend"
-              "idle-behavior"
+              "Hibernate"
             ];
 
             behavior = {
               lock = {
                 action = "lock";
-                enabled = true; # ← увімкнено
-                timeout = 60.0;
+                enabled = true;
+                timeout = 60.0; # 1 хв — швидше блокуємо, безпека понад усе на мобільному пристрої
               };
-              "screen-off" = {
+              screen-off = {
                 action = "screen_off";
-                enabled = true; # ← увімкнено
-                timeout = 660.0;
+                enabled = true;
+                timeout = 120.0; # 2 хв — гасимо екран швидко, головний споживач батареї
               };
-              "lock-and-suspend" = {
+              lock-and-suspend = {
                 action = "lock_and_suspend";
-                enabled = true; # ← увімкнено
-                timeout = 900.0;
+                enabled = true;
+                timeout = 300.0; # 5 хв — засинаємо значно швидше, ніж на десктопі
               };
-              "idle-behavior" = {
-                action = "command";
-                enabled = false; # цей лишив вимкненим — не мав команди на скріні
-                timeout = 600.0;
+              Hibernate = {
+                action = "hibernate";
+                command = "systemctl hibernate";
+                enabled = true;
+                timeout = 1800.0; # 30 хв — якщо довго без діла, у hibernate замість тримати suspend
               };
             };
           };
@@ -131,7 +132,7 @@
 
             session.actions = [
               {
-                action = "lock";
+                action = "logout";
                 enabled = true;
                 shortcut = "e";
                 variant = "default";
@@ -184,6 +185,9 @@
 
           widget = {
             battery.show_label = false;
+            network.show_label = false;
+            volume.show_label = false;
+            media.hide_when_no_media = true;
             clock.format = "{:%H:%M}";
             clock.anchor = true;
             spacer_2.type = "spacer";
@@ -193,6 +197,7 @@
             };
             workspaces = {
               capsule_radius = "auto";
+              display = "none";
               hide_when_empty = true;
             };
           };
