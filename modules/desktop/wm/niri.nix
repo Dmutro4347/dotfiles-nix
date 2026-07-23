@@ -431,6 +431,14 @@ in
               action = spawn-sh "noctalia msg panel-toggle control-center";
             };
 
+            "Mod+Shift+W" = {
+              action = spawn-sh "noctalia msg panel-toggle wallpaper";
+            };
+
+            "Mod+B" = {
+              action = spawn-sh "noctalia msg bar-toggle";
+            };
+
             "Mod+Shift+B" = {
               # description = "Open Browser";
               action = {
