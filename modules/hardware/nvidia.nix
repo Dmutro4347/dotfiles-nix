@@ -1,22 +1,17 @@
 {
   flake.modules.nixos.nvidia =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
+    { config, ... }:
     {
       # Enable OpenGL
       hardware.graphics = {
         enable = true;
+        enable32Bit = true; # Steam/Proton і будь-які 32-бітні застосунки/ігри
       };
 
       # Load nvidia driver for Xorg and Wayland
       services.xserver.videoDrivers = [ "nvidia" ];
 
       hardware.nvidia = {
-
         # Modesetting is required.
         modesetting.enable = true;
 
@@ -44,6 +39,14 @@
 
         # Optionally, you may need to select the appropriate driver version for your specific GPU.
         package = config.boot.kernelPackages.nvidiaPackages.stable;
+      };
+
+      # Без цього на Wayland (niri), коли Nvidia — єдина відеокарта, часто
+      # блимає курсор і кульгає апаратне прискорення відео (VA-API).
+      environment.sessionVariables = {
+        LIBVA_DRIVER_NAME = "nvidia";
+        GBM_BACKEND = "nvidia-drm";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       };
     };
 }

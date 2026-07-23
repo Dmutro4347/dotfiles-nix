@@ -13,8 +13,9 @@ in
       ./_hardware-configuration.nix
       nixos.base
       # Hardware
-      nixos.bluetooth
+      # nixos.bluetooth
       nixos.monitor
+      nixos.nvidia
       # Services
       nixos.libvirt
       nixos.openssh
