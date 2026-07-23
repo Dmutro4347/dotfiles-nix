@@ -117,9 +117,9 @@ in
 
             mouse = {
               enable = true;
-              natural-scroll = true;
+              natural-scroll = false;
               accel-speed = 0.2;
-              # accel-profile = "flat";
+              accel-profile = "flat";
               # scroll-method = "no-scroll";
             };
 

@@ -62,23 +62,23 @@
               lock = {
                 action = "lock";
                 enabled = true;
-                timeout = 60.0; # 1 хв — швидше блокуємо, безпека понад усе на мобільному пристрої
+                timeout = 120.0; # 2 хв — швидше блокуємо, безпека понад усе на мобільному пристрої
               };
               screen-off = {
                 action = "screen_off";
                 enabled = true;
-                timeout = 120.0; # 2 хв — гасимо екран швидко, головний споживач батареї
+                timeout = 240.0; # 4 хв — гасимо екран швидко, головний споживач батареї
               };
               lock-and-suspend = {
                 action = "lock_and_suspend";
                 enabled = true;
-                timeout = 300.0; # 5 хв — засинаємо значно швидше, ніж на десктопі
+                timeout = 600.0; # 10 хв — засинаємо значно швидше, ніж на десктопі
               };
               Hibernate = {
                 action = "hibernate";
                 command = "systemctl hibernate";
                 enabled = true;
-                timeout = 1800.0; # 30 хв — якщо довго без діла, у hibernate замість тримати suspend
+                timeout = 3600.0; # 60 хв — якщо довго без діла, у hibernate замість тримати suspend
               };
             };
           };
