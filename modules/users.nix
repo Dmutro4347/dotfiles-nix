@@ -7,16 +7,16 @@
       users.${config.primaryUser} = {
         isNormalUser = true;
 
-        # image = "/home/${config.primaryUser}/Pictures/ava.jpg";
         extraGroups = [
           "wheel"
           "networkmanager"
           "input"
           "docker"
-          "dockerd"
           "kvm"
           "libvirtd"
           "i2c"
+          "video"
+          "render"
         ];
       };
 

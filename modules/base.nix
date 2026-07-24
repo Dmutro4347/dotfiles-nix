@@ -42,6 +42,7 @@ in
       homeManager.cli-tools
       homeManager.dev-tools
       homeManager.git
+      homeManager.waync
     ];
   };
 }

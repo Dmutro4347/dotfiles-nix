@@ -53,7 +53,7 @@ in
               scale = 1.0;
             };
 
-            "DP-1" = {
+            "DP-3" = {
               mode = {
                 width = 1920;
                 height = 1080;
@@ -404,7 +404,7 @@ in
                   ) 10
                 );
             in
-            (perOutput "DP-1") // (perOutput "HDMI-A-1");
+            (perOutput "DP-3") // (perOutput "HDMI-A-1");
           # ---------------------------------------------------------------------
           # Гарячі клавіші.
           # https://niri-wm.github.io/niri/Configuration:-Key-Bindings

@@ -20,6 +20,8 @@ in
       nixos.libvirt
       nixos.openssh
       nixos.niri
+      nixos.docker
+      # homeManager.waync
     ];
     primaryUser = "arfors";
     system.stateVersion = "26.05";
