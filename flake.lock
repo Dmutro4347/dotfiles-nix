@@ -389,11 +389,11 @@
     "nvchad-starter": {
       "flake": false,
       "locked": {
-        "lastModified": 1785763548,
-        "narHash": "sha256-eeZ4wG3l6X96F+XvFjN8Ole7iq/G9j3Tljg1+2ALpRs=",
+        "lastModified": 1785785036,
+        "narHash": "sha256-SPVrp3mtIK7JFTnMUpq4iI2d2s/9NN2r4uil0Mg3sYg=",
         "owner": "Dmutro4347",
         "repo": "nvchad-config",
-        "rev": "cb66144215cdde86ba945e6a4d8b514ce2f8e405",
+        "rev": "e50e0eefda76cbcf8d88f9ada4e54760c6d34b8e",
         "type": "github"
       },
       "original": {
