@@ -15,6 +15,7 @@ in
       # Hardware
       nixos.battery
       nixos.bluetooth
+      nixos.docker
       nixos.touchpad
       nixos.fingerprint
       # Services

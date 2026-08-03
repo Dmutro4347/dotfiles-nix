@@ -3,7 +3,6 @@ let
 
   inherit (config.flake.modules)
     homeManager
-    nixos
     ;
 in
 {

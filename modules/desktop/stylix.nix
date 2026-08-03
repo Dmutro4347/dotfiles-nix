@@ -20,11 +20,12 @@
     stylix = {
       enable = true;
       polarity = "dark";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
       targets = {
         neovim.enable = false;
         tmux.enable = true;
         noctalia-shell.enable = true;
+        yazi.enable = false;
       };
 
       cursor = {

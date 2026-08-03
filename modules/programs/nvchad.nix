@@ -1,12 +1,13 @@
-# {
-#   flake.modules.homeManager.nvchad =
 #     {
 #       config,
 #       pkgs,
 #       inputs,
 #       ...
 #     }:
-#     {
+#
+# {
+#   flake.modules.homeManager.nvchad =
+#    {
 #       # <-- inputs from flake
 #       # ...
 #       nixpkgs = {
@@ -17,7 +18,7 @@
 #         ];
 #       };
 #       imports = [
-#         inputs.nix4nvchad.homeManagerModule
+#         inputs.nix4nvchad.homeManagerModules
 #       ];
 #       programs.nvchad.enable = true;
 #     };

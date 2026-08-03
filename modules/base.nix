@@ -38,11 +38,10 @@ in
     imports = [
       generic.profile
       homeManager.fish
-      # homeManager.nvchad
+      homeManager.nvchad
       homeManager.cli-tools
       homeManager.dev-tools
       homeManager.git
-      homeManager.waync
     ];
   };
 }
