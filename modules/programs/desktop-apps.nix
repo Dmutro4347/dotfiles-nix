@@ -30,6 +30,7 @@ in
         jetbrains.pycharm
         discord
         antigravity
+        dbeaver-bin
       ];
 
     };
