@@ -29,8 +29,8 @@ in
         lmstudio
         jetbrains.pycharm
         discord
-        antigravity
         dbeaver-bin
+        antigravity-ide
       ];
 
     };

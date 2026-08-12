@@ -22,6 +22,7 @@
           upd = "nh os switch --update";
           hms = "nh home switch";
           vi = "nvim";
+          y = "yazi";
           gs = "git status";
           ga = "git add";
           gc = "git commit";

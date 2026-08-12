@@ -21,9 +21,13 @@ in
       # Services
       nixos.libvirt
       nixos.openssh
+      # nixos.vm-curator
+
+      # wm
       nixos.niri
 
     ];
+
     primaryUser = "arfors";
     system.stateVersion = "26.05";
   };

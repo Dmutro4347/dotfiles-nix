@@ -85,42 +85,6 @@
 
           location.auto_locate = true;
 
-          lockscreen.blurred_desktop = true;
-
-          lockscreen_widgets = {
-            enabled = true;
-            schema_version = 2;
-            widget_order = [ "lockscreen-login-box" ];
-
-            grid = {
-              cell_size = 16;
-              major_interval = 4;
-              visible = true;
-            };
-
-            widget."lockscreen-login-box" = {
-              type = "login_box";
-              box_width = 400.0;
-              box_height = 70.0;
-              cx = 960.0;
-              cy = 960.0;
-              rotation = 0.0;
-
-              settings = {
-                background_color = "surface_variant";
-                background_opacity = 0.88;
-                background_radius = 12.0;
-                input_opacity = 1.0;
-                input_radius = 6.0;
-                center_password_text = false;
-                show_caps_lock = true;
-                show_keyboard_layout = true;
-                show_login_button = true;
-                show_password_hint = true;
-              };
-            };
-          };
-
           shell = {
             screen_time_enabled = true;
 
@@ -197,7 +161,8 @@
             };
             workspaces = {
               capsule_radius = "auto";
-              display = "none";
+              label_source = "none";
+              show_labels = false;
               hide_when_empty = true;
             };
           };

@@ -389,11 +389,19 @@
     "nvchad-starter": {
       "flake": false,
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1785785036,
         "narHash": "sha256-SPVrp3mtIK7JFTnMUpq4iI2d2s/9NN2r4uil0Mg3sYg=",
         "owner": "Dmutro4347",
         "repo": "nvchad-config",
         "rev": "e50e0eefda76cbcf8d88f9ada4e54760c6d34b8e",
+=======
+        "lastModified": 1785785756,
+        "narHash": "sha256-2+82FZ5/k2BvI1i5uv+OHxB+UAHZJxKOViWUUddTmJg=",
+        "owner": "Dmutro4347",
+        "repo": "nvchad-config",
+        "rev": "dbdc8a0b6810e7fe2e88eef8e312ff67d7d24c6a",
+>>>>>>> 1982c17 (add udisks)
         "type": "github"
       },
       "original": {
@@ -414,7 +422,8 @@
         "noctalia": "noctalia",
         "nvchad-starter": "nvchad-starter",
         "spicetify-nix": "spicetify-nix",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "vm-curator": "vm-curator"
       }
     },
     "spicetify-nix": {
@@ -561,6 +570,26 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "vm-curator": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785447042,
+        "narHash": "sha256-lq6UuT0ECmuYT2sByYVUi8GHTM2mq0X1c45/WA8+Zss=",
+        "owner": "mroboff",
+        "repo": "vm-curator",
+        "rev": "03eb69e019df4a802b86fd44f5624360a86e0bf9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mroboff",
+        "repo": "vm-curator",
         "type": "github"
       }
     },

@@ -29,6 +29,7 @@ in
       nixos.users
       nixos.swap
       nixos.nvchad
+      nixos.udisks
 
     ];
     home-manager.sharedModules = [ homeManager.base ];

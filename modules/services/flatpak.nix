@@ -16,12 +16,6 @@
       services.flatpak = {
         enable = true;
         packages = [
-          "com.google.AndroidStudio" # android studio
-          "org.audacityteam.Audacity" # audacity
-          "org.mozilla.firefox" # firefox
-          "org.gimp.GIMP" # gimp
-          "com.stremio.Stremio" # stremio
-          "com.stremio.Service" # stremio service
         ];
       };
     };

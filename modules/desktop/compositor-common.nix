@@ -21,7 +21,7 @@ in
       homeManager.desktop-apps
       homeManager.wm-tools
       homeManager.gpg-agent
-      homeManager.kdeconnect
+      # homeManager.kdeconnect
       homeManager.noctalia
     ];
 
