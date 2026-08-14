@@ -75,5 +75,15 @@
         #     sha256 = "036gqhbf6s5ddgvfbgn6iqbzgizssyf7820m5815b2gd748jw8zc";
         #   };
       };
+      specialisation = {
+        light.configuration = {
+          stylix.polarity = lib.mkForce "light";
+          stylix.base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/ayu-light.yaml";
+        };
+        dark.configuration = {
+          stylix.polarity = lib.mkForce "dark";
+          stylix.base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+        };
+      };
     };
 }
