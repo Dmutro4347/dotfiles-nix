@@ -4,6 +4,7 @@
       pkgs.spice-gtk
       pkgs.spice-protocol
       pkgs.usbredir
+      pkgs.OVMF.fd
     ];
     virtualisation.libvirtd = {
       enable = true;

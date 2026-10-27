@@ -20,6 +20,9 @@ in
         homeManager.kitty
       ];
       home.packages = with pkgs; [
+        zoom-us
+        hunspell
+        hunspellDicts.uk_UA
         qbittorrent
         kitty
         obsidian
@@ -31,6 +34,11 @@ in
         discord
         dbeaver-bin
         antigravity-ide
+        teams-for-linux
+        bitwarden-desktop
+        cisco-packet-tracer_9
+        anki
+        libreoffice
       ];
 
     };

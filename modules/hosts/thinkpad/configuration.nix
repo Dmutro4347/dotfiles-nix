@@ -21,7 +21,7 @@ in
       # Services
       nixos.libvirt
       nixos.openssh
-      # nixos.vm-curator
+      nixos.wireguard
 
       # wm
       nixos.niri

@@ -44,11 +44,6 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    vm-curator = {
-      url = "github:mroboff/vm-curator";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     import-tree.url = "github:vic/import-tree";
   };
   outputs =

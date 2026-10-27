@@ -54,23 +54,23 @@
           }
         ];
 
-        plugins = {
-          compress = pkgs.fetchFromGitHub {
-            owner = "boydaihungst";
-            repo = "compress.yazi";
-            rev = "main"; # зафіксуй rev
-            hash = "sha256-/3a1T1aGRKmhkRROFVa12w2Kxn766A4C2sLvFZlnKAI=";
-          };
-          #   bookmarks =
-          #     pkgs.fetchFromGitHub {
-          #       owner = "yazi-rs";
-          #       repo = "plugins";
-          #       rev = "main"; # зафіксуй rev
-          #       hash = "";
-          #     }
-          #     + "/bookmarks";
-        };
-        #   theme.indicator = with config.lib.stylix.colors.withHashtag; {
+        # plugins = {
+        #   compress = pkgs.fetchFromGitHub {
+        #     owner = "boydaihungst";
+        #     repo = "compress.yazi";
+        #     rev = "main"; # зафіксуй rev
+        #     hash = "sha256-/3a1T1aGRKmhkRROFVa12w2Kxn766A4C2sLvFZlnKAI=";
+        #   };
+        #   #   bookmarks =
+        #   #     pkgs.fetchFromGitHub {
+        #   #       owner = "yazi-rs";
+        #   #       repo = "plugins";
+        #   #       rev = "main"; # зафіксуй rev
+        #   #       hash = "";
+        #   #     }
+        #   #     + "/bookmarks";
+        # };
+        # #   theme.indicator = with config.lib.stylix.colors.withHashtag; {
         #     current = lib.mkForce {
         #       fg = base00;
         #       bg = base0D;

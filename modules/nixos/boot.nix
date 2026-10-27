@@ -1,7 +1,9 @@
 { inputs, ... }: {
   flake.modules.nixos.boot = { pkgs, ... }: {
     imports = [ inputs.minegrub-theme.nixosModules.default ];
-    boot.loader.efi.canTouchEfiVariables = true;
+    # boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader.grub.efiInstallAsRemovable = true;
+    boot.loader.timeout = 5;
     boot.loader.grub = {
       enable = true;
       device = "nodev";

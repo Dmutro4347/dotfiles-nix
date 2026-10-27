@@ -14,6 +14,7 @@ in
         homeManager.yazi
       ];
       home.packages = with pkgs; [
+        nmap
         pinentry-curses
         bc
         gnupg
@@ -32,8 +33,7 @@ in
         tree
         autojump
         fd
-        # neovim
-
+        opencode
       ];
 
     };
